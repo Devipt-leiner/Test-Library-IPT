@@ -13,6 +13,7 @@
   width: -webkit-fill-available;
   width: -moz-available;
   -webkit-appearance: none;
+  background-color: white;
   height: 30px;
   padding-left: 10px;
   color: gray;
