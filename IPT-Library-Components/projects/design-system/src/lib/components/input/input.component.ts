@@ -42,7 +42,6 @@ export default class InputComponent {
   public codeValue!: string;
   data: any[] = [];
   formControl!: FormControl;
-  exampleForm!: FormGroup;
 
   @Input() inputType!: string;
   @Input() placeHolder!: string;
@@ -54,12 +53,6 @@ export default class InputComponent {
     if (this.formControl !== value) {
       this.formControl = value as FormControl;
     }
-  }
-
-  constructor(fb: FormBuilder) {
-    this.exampleForm = fb.group({
-      value: ['']
-    });
   }
 
   public get classes(): string {

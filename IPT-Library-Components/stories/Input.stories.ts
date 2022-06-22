@@ -4,7 +4,7 @@ import type { Story, Meta } from '@storybook/angular';
 
 import Button from '../projects/design-system/src/lib/components/button/button.component';
 import Input from '../projects/design-system/src/lib/components/input/input.component';
-import { FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 export default {
   title: 'Example/Input',

@@ -1,0 +1,38 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.select {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: 500ms;
+  font-weight: 300;
+  margin: 10px 10px -30px 10px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  -webkit-appearance: none;
+  height: 30px;
+  padding-left: 10px;
+  color: gray;
+}
+
+.selected {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: 500ms;
+  font-weight: 300;
+  margin: 10px 10px -30px 10px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: 28px;
+  padding-left: 10px;
+}
+
+select:hover {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}

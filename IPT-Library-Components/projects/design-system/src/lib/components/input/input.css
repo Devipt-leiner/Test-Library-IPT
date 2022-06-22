@@ -36,7 +36,8 @@ input {
   margin: 10px 10px -30px 10px;
   width: -webkit-fill-available;
   width: -moz-available;
-  height: 10px;
+  height: 28px;
+  padding-left: 10px;
 }
 
 input:hover {
