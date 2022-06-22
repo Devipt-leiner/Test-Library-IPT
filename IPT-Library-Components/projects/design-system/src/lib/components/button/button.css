@@ -1,0 +1,61 @@
+.ipt-button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 15px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  transition: 700ms;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.ipt-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+
+.ipt-button:active {
+  transform: scale(0.8);
+}
+
+.ipt-button--primary {
+  color: white;
+  background-color: #1c77f7;
+}
+
+.ipt-button--primary-disabled {
+  color: gray;
+  background-color: #ffffff;
+  border: 1px solid gray;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.ipt-button--primary-disabled:hover {
+  box-shadow: none;
+}
+
+.ipt-button--secondary {
+  color: #1c77f7;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.ipt-button--small {
+  font-size: 12px;
+  padding: 10px 16px;
+}
+
+.ipt-button--medium {
+  font-size: 14px;
+  padding: 11px 20px;
+}
+
+.ipt-button--large {
+  font-size: 16px;
+  padding: 12px 24px;
+}
