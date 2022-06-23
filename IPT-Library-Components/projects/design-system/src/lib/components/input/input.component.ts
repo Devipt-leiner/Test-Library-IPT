@@ -6,7 +6,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
   template: `
     <div class="input-container">
       <input *ngIf="inputType === 'date'"
-        #myInput
+        placeholder="{{ placeHolder }}"
         class="input"
         type="{{ inputType ? 'text' : 'date' }}"
         [formControl]="formControl"
@@ -17,7 +17,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
         ng-model="inputType"/>
 
       <input *ngIf="inputType !== 'date'"
-        #myInput
+        placeholder="{{ placeHolder }}"
         class="input"
         [ngStyle]="{
           'box-shadow':

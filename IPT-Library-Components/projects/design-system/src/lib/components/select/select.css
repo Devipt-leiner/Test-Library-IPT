@@ -2,21 +2,25 @@
   font-family: "Poppins", sans-serif;
 }
 
+.select-container {
+  position: relative;
+  margin-top: 30px;
+}
+
 .select {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
   border: none;
   outline: none;
-  transition: 500ms;
+  display: block;
+  transition: 200ms;
   font-weight: 300;
   margin: 10px 10px -30px 10px;
   width: -webkit-fill-available;
   width: -moz-available;
-  -webkit-appearance: none;
-  background-color: white;
-  height: 30px;
+  height: 28px;
   padding-left: 10px;
-  color: gray;
+  background: transparent;
 }
 
 .selected {
@@ -34,6 +38,37 @@
 }
 
 select:hover {
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
-    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
+
+.select:focus {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  transition: 0s;
+  border: 1.5px solid #1c77f7;
+}
+
+.label {
+  color: #999;
+  font-size: 15px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 20px;
+  top: -20px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.labelUp {
+  color: #1c77f7;
+  font-size: 15px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 20px;
+  top: -20px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+ }

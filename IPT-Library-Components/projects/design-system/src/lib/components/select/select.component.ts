@@ -4,29 +4,33 @@ import { AbstractControl, FormControl } from '@angular/forms';
 @Component({
   selector: 'ipt-select',
   template: `
-    <select
-      [(ngModel)]="binding"
-      (ngModelChange)="seleccionar($event)"
-      [ngClass]="textClass"
-      [ngStyle]="{
-        'box-shadow':
-        boxShadow === 2
-        ? '1px 1px 7.5px #b71c1c'
-        : (boxShadow === 1 ? '1px 1px 7.5px #1b5e20' : 'box-shadow: rgba(100, 100, 111, 0.2);')
-      }">
-      <option *ngIf="defaultText !== ''" disabled hidden selected>{{ defaultText }}</option>
-      <option *ngFor="let item of data; index as i" [value]="item.code">
-        {{ item.name }} {{ item.prefix }}
-      </option>
-    </select>
+    <div class="select-container">
+      <label [ngClass]="labelClass">{{ defaultText }}</label>
+      <select
+        [(ngModel)]="binding"
+        (ngModelChange)="seleccionar.emit($event)"
+        (click)="click($event)"
+        [ngClass]="textClass"
+        [ngStyle]="{
+          'box-shadow':
+          boxShadow === 2
+          ? '1px 1px 7.5px #b71c1c'
+          : (boxShadow === 1 ? '1px 1px 7.5px #1b5e20' : 'box-shadow: rgba(100, 100, 111, 0.2);')
+        }">
+        <option *ngFor="let item of data; index as i" [value]="item.code">
+          {{ item.name }} {{ item.prefix }}
+        </option>
+      </select>
+    </div>
   `,
   styleUrls: ['./select.css'],
 })
-export class SelectComponent {
+export default class SelectComponent {
 
   binding: any;
   boxShadow: number = 0;
   formControl!: FormControl;
+  clicked: boolean = false;
 
   @Input() isRequired!: boolean; // temas de validacion
   // objeto que me trae el listado
@@ -56,12 +60,20 @@ export class SelectComponent {
     }
   }
 
+  click(value: PointerEvent) {
+    this.clicked = value.isTrusted;
+  }
+
   ngOnInit(): void {
     this.binding = this.defaultText;
   }
 
   public get textClass(): string {
     return this.defaultText === '' ? 'selected' : 'select';
+  }
+
+  public get labelClass(): string {
+    return this.clicked === false ? 'label' : 'labelUp';
   }
 
 }
