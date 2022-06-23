@@ -17,12 +17,65 @@
     "injectables": [],
     "guards": [],
     "interceptors": [],
-    "classes": [],
+    "classes": [
+        {
+            "name": "exampleForm",
+            "id": "class-exampleForm-91cdeb10ceff0c59c666d74bcb5e9b162762f4e9b56873a3291d309b36e04ce47e2fb79fea404e019030d6e6f820fd73d4a49818ff4383480958e5560ade0902",
+            "file": "stories/Input.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { moduleMetadata } from '@storybook/angular';\nimport { CommonModule } from '@angular/common';\nimport type { Story, Meta } from '@storybook/angular';\n\nimport Input from '../projects/design-system/src/lib/components/input/input.component';\nimport { FormBuilder, FormGroup, Validators } from '@angular/forms';\n\nexport default {\n  title: 'Example/Input',\n  component: Input,\n  decorators: [\n    moduleMetadata({\n      declarations: [Input],\n      imports: [CommonModule],\n    }),\n  ],\n  parameters: {\n    // More on Story layout: https://storybook.js.org/docs/angular/configure/story-layout\n    layout: 'fullscreen',\n  },\n} as Meta;\n\nconst Template: Story<Input> = (args: Input) => ({\n  props: args,\n});\n\nexport class exampleForm {\n\n  exampleForm!: FormGroup;\n\n  constructor(\n    fb: FormBuilder,\n  ) {\n    this.exampleForm = fb.group({\n      example: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(32)],],\n    });\n  }\n\n}\n\nexport const Default = Template.bind({});\nDefault.args = {\n  inputType: 'text',\n  placeHolder: 'Nombre',\n  validateText: 'Debe escribir su nombre',\n  control: new exampleForm.arguments(),\n};\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 29,
+                "jsdoctags": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "properties": [
+                {
+                    "name": "exampleForm",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
     "directives": [],
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-72ee24416d13d3f6fdb7209fa48082aad37a30db9601437693ef4466d3e435548af24f7ef35b1cfa8b347f35aa07f15a692c7bd08a65cf0f69525a16df9283ba",
+            "id": "component-ButtonComponent-4a5ad60f1336b1754c86a11ff302661f3de8f474f24fdc31fd7204d456cc23004a077ee432b6cd67124b477a1f0dbfc7d1bf1b5c71f8381db0128c875a1b4df9",
             "file": "projects/design-system/src/lib/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -94,11 +147,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ipt-button',\n  template: `<button *ngIf=\"isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>\n\n  <button *ngIf=\"!isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport class ButtonComponent {\n\n  @Input() primary: boolean = false;\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() label: string = 'Button';\n  @Input() isEnabled: boolean = true;\n\n  @Output() onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary && this.isEnabled === true\n      ? 'ipt-button--primary'\n      : this.isEnabled === false ? 'ipt-button--primary-disabled'\n      : 'ipt-button--secondary';\n\n    return ['ipt-button', `ipt-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ipt-button',\n  template: `<button *ngIf=\"isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>\n\n  <button *ngIf=\"!isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n\n  @Input() primary: boolean = false;\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() label: string = 'Button';\n  @Input() isEnabled: boolean = true;\n\n  @Output() onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary && this.isEnabled === true\n      ? 'ipt-button--primary'\n      : this.isEnabled === false ? 'ipt-button--primary-disabled'\n      : 'ipt-button--secondary';\n\n    return ['ipt-button', `ipt-button--${this.size}`, mode];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".ipt-button {\n  font-family: \"Poppins\", sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 15px;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n  transition: 700ms;\n  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,\n      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,\n      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;\n}\n\n.ipt-button:hover {\n  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;\n}\n\n.ipt-button:active {\n  transform: scale(0.8);\n}\n\n.ipt-button--primary {\n  color: white;\n  background-color: #1c77f7;\n}\n\n.ipt-button--primary-disabled {\n  color: gray;\n  background-color: #ffffff;\n  border: 1px solid gray;\n  box-shadow: none;\n  cursor: not-allowed;\n}\n\n.ipt-button--primary-disabled:hover {\n  box-shadow: none;\n}\n\n.ipt-button--secondary {\n  color: #1c77f7;\n  background-color: rgb(255, 255, 255);\n  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,\n      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,\n      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;\n}\n\n.ipt-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n\n.ipt-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n\n.ipt-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "data": ".ipt-button {\n  font-family: \"Poppins\", sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 12px;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n  transition: 400ms;\n  width: 100%;\n  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,\n      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,\n      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;\n}\n\n.ipt-button:hover {\n  box-shadow: 0 10px 20px rgba(27, 27, 27, .5);\n  transform: translateY(-3px);\n}\n\n.ipt-button:active {\n  transform: scale(0.99);\n}\n\n.ipt-button--primary {\n  color: white;\n  background-color: #1c77f7;\n}\n\n.ipt-button--primary-disabled {\n  color: gray;\n  background-color: #ffffff;\n  border: 1px solid gray;\n  box-shadow: none;\n  cursor: not-allowed;\n}\n\n.ipt-button--primary-disabled:hover {\n  box-shadow: none;\n}\n\n.ipt-button--secondary {\n  color: #1c77f7;\n  background-color: rgb(255, 255, 255);\n  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,\n      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,\n      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;\n}\n\n.ipt-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n\n.ipt-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n\n.ipt-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
                     "styleUrl": "./button.css"
                 }
             ],
@@ -117,7 +170,7 @@
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-6c6a7d113d2c6f2831b49c9762e732cf4ab8369e81f65992608daa97b00680f7ab4b4888c40c5e8271c55250384d12019857d2ccf1323d4b33a36e1bd6618e2b",
+            "id": "component-InputComponent-940524b5ea25ff8b832e2c7f4ed4384020cb72b7fe96221b5dbd9b2edd5506200b9e2af31207ce43a4f728c74c9ae25ce85e515bfb93d661e408928bb6803abd",
             "file": "projects/design-system/src/lib/components/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -129,7 +182,7 @@
                 "./input.css"
             ],
             "styles": [],
-            "template": "<div class=\"input-container\">\n  <input *ngIf=\"inputType === 'date'\"\n    type=\"{{ inputType ? 'text' : 'date' }}\"\n    placeholder=\"{{ placeHolder }}\"\n    [formControl]=\"formControl\"\n    [ngClass]=\"classes\"\n    onfocus=\"this.type='date';\"\n    onblur=\"javascript: if( !this.value ) this.type='text';\"\n    uib-datepicker-popup=\"dd/MM/yyyy\"\n    ng-model=\"inputType\"/>\n\n  <input *ngIf=\"inputType !== 'date'\"\n    [ngStyle]=\"{\n      'box-shadow':\n      formControl.value === ''\n      ? 'box-shadow: rgba(100, 100, 111, 0.2);'\n      : formControl.valid\n      ? '1px 1px 7.5px #1b5e20'\n      : '1px 1px 7.5px #b71c1c'\n    }\"\n    class=\"input\"\n    type=\"{{ inputType }}\"\n    placeholder=\"{{ placeHolder }}\"\n    [formControl]=\"formControl\"\n    [attr.list]=\"list\"/>\n\n  <p *ngIf=\"!formControl.valid && formControl.value !== ''\">\n    {{ validateText }}\n  </p>\n</div>\n",
+            "template": "<div class=\"input-container\">\n  <input *ngIf=\"inputType === 'date'\"\n    #myInput\n    class=\"input\"\n    type=\"{{ inputType ? 'text' : 'date' }}\"\n    [formControl]=\"formControl\"\n    [ngClass]=\"classes\"\n    onfocus=\"this.type='date';\"\n    onblur=\"javascript: if( !this.value ) this.type='text';\"\n    uib-datepicker-popup=\"dd/MM/yyyy\"\n    ng-model=\"inputType\"/>\n\n  <input *ngIf=\"inputType !== 'date'\"\n    #myInput\n    class=\"input\"\n    [ngStyle]=\"{\n      'box-shadow':\n      formControl.value === ''\n      ? 'box-shadow: rgba(100, 100, 111, 0.2);'\n      : formControl.valid\n      ? '1px 1px 7.5px #1b5e20'\n      : '1px 1px 7.5px #b71c1c'\n    }\"\n    class=\"input\"\n    type=\"{{ inputType }}\"\n    [formControl]=\"formControl\"\n    [ngClass]=\"classes\"\n    [attr.list]=\"list\"/>\n\n  <label>{{ placeHolder }}</label>\n\n  <p *ngIf=\"!formControl.valid && formControl.value !== ''\">\n    {{ validateText }}\n  </p>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
@@ -137,7 +190,7 @@
                     "name": "control",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 52,
+                    "line": 58,
                     "type": "AbstractControl",
                     "decorators": []
                 },
@@ -145,7 +198,7 @@
                     "name": "iconUrl",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 51,
+                    "line": 57,
                     "type": "string",
                     "decorators": []
                 },
@@ -153,7 +206,7 @@
                     "name": "inputType",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 46,
+                    "line": 53,
                     "type": "string",
                     "decorators": []
                 },
@@ -161,7 +214,7 @@
                     "name": "list",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 50,
+                    "line": 56,
                     "type": "string",
                     "decorators": []
                 },
@@ -169,24 +222,15 @@
                     "name": "placeHolder",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 47,
+                    "line": 54,
                     "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "size",
-                    "defaultValue": "'medium'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 48,
-                    "type": "\"small\" | \"medium\" | \"large\"",
                     "decorators": []
                 },
                 {
                     "name": "validateText",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 49,
+                    "line": 55,
                     "type": "string",
                     "decorators": []
                 }
@@ -200,7 +244,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 42,
+                    "line": 47,
                     "modifierKind": [
                         123
                     ]
@@ -213,7 +257,7 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 43
+                    "line": 48
                 },
                 {
                     "name": "formControl",
@@ -222,7 +266,22 @@
                     "type": "FormControl",
                     "optional": false,
                     "description": "",
-                    "line": 44
+                    "line": 49
+                },
+                {
+                    "name": "myInput",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 51,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'myInput', {static: true}"
+                        }
+                    ]
                 }
             ],
             "methodsClass": [],
@@ -233,11 +292,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-input',\n  template: `\n    <div class=\"input-container\">\n      <input *ngIf=\"inputType === 'date'\"\n        type=\"{{ inputType ? 'text' : 'date' }}\"\n        placeholder=\"{{ placeHolder }}\"\n        [formControl]=\"formControl\"\n        [ngClass]=\"classes\"\n        onfocus=\"this.type='date';\"\n        onblur=\"javascript: if( !this.value ) this.type='text';\"\n        uib-datepicker-popup=\"dd/MM/yyyy\"\n        ng-model=\"inputType\"/>\n\n      <input *ngIf=\"inputType !== 'date'\"\n        [ngStyle]=\"{\n          'box-shadow':\n          formControl.value === ''\n          ? 'box-shadow: rgba(100, 100, 111, 0.2);'\n          : formControl.valid\n          ? '1px 1px 7.5px #1b5e20'\n          : '1px 1px 7.5px #b71c1c'\n        }\"\n        class=\"input\"\n        type=\"{{ inputType }}\"\n        placeholder=\"{{ placeHolder }}\"\n        [formControl]=\"formControl\"\n        [attr.list]=\"list\"/>\n\n      <p *ngIf=\"!formControl.valid && formControl.value !== ''\">\n        {{ validateText }}\n      </p>\n    </div>\n    `,\n  styleUrls: ['./input.css'],\n})\nexport class InputComponent {\n\n  public codeValue!: string;\n  data: any[] = [];\n  formControl!: FormControl;\n\n  @Input() inputType!: string;\n  @Input() placeHolder!: string;\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() validateText?: string;\n  @Input() list?: string; //Para el datalist\n  @Input() iconUrl?: string;\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  public get classes(): string {\n    return this.size === 'small'\n    ? 'ipt-input--small'\n    : 'ipt-input--large'\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';\nimport { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-input',\n  template: `\n    <div class=\"input-container\">\n      <input *ngIf=\"inputType === 'date'\"\n        #myInput\n        class=\"input\"\n        type=\"{{ inputType ? 'text' : 'date' }}\"\n        [formControl]=\"formControl\"\n        [ngClass]=\"classes\"\n        onfocus=\"this.type='date';\"\n        onblur=\"javascript: if( !this.value ) this.type='text';\"\n        uib-datepicker-popup=\"dd/MM/yyyy\"\n        ng-model=\"inputType\"/>\n\n      <input *ngIf=\"inputType !== 'date'\"\n        #myInput\n        class=\"input\"\n        [ngStyle]=\"{\n          'box-shadow':\n          formControl.value === ''\n          ? 'box-shadow: rgba(100, 100, 111, 0.2);'\n          : formControl.valid\n          ? '1px 1px 7.5px #1b5e20'\n          : '1px 1px 7.5px #b71c1c'\n        }\"\n        class=\"input\"\n        type=\"{{ inputType }}\"\n        [formControl]=\"formControl\"\n        [ngClass]=\"classes\"\n        [attr.list]=\"list\"/>\n\n      <label>{{ placeHolder }}</label>\n\n      <p *ngIf=\"!formControl.valid && formControl.value !== ''\">\n        {{ validateText }}\n      </p>\n    </div>\n    `,\n  styleUrls: ['./input.css'],\n})\nexport default class InputComponent {\n\n  public codeValue!: string;\n  data: any[] = [];\n  formControl!: FormControl;\n\n  @ViewChild('myInput', {static: true}) myInput!: any;\n\n  @Input() inputType!: string;\n  @Input() placeHolder!: string;\n  @Input() validateText?: string;\n  @Input() list?: string; //Para el datalist\n  @Input() iconUrl?: string;\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n@media screen and (min-width: 320px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 12px;\n    padding-left: 15px;\n  }\n}\n\n@media screen and (min-width: 768px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 14px;\n    padding-left: 15px;\n  }\n}\n\n@media screen and (min-width: 1024px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 16px;\n    padding-left: 15px;\n  }\n}\n\ninput {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  transition: 500ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n}\n\ninput:hover {\n  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,\n    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;\n}\n\n.ipt-input--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n\n.ipt-input--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n\n.ipt-input--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n@media screen and (min-width: 320px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 12px;\n    padding-left: 15px;\n    margin-top: 35px;\n  }\n}\n\n@media screen and (min-width: 768px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 14px;\n    padding-left: 15px;\n  }\n}\n\n@media screen and (min-width: 1024px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 16px;\n    padding-left: 15px;\n  }\n}\n\n.input-container {\n  position: relative;\n  margin-top: 30px;\n}\n\ninput {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  display: block;\n  transition: 200ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n  background: transparent;\n}\n\ninput:hover {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n}\n\ninput:focus {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  transition: 0s;\n  border: 1.5px solid #1c77f7;\n}\n\nlabel {\n  color: #999;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: 7px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n}\n\n .input:focus ~ label, .input:invalid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #1c77f7;\n }\n\n.labeltop {\n  color: #999;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: -20px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n }\n\n\n\n\n\n\n",
                     "styleUrl": "./input.css"
                 }
             ],
@@ -259,7 +318,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 52,
+                        "line": 58,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -271,15 +330,6 @@
                                 }
                             }
                         ]
-                    }
-                },
-                "classes": {
-                    "name": "classes",
-                    "getSignature": {
-                        "name": "classes",
-                        "type": "string",
-                        "returnType": "string",
-                        "line": 58
                     }
                 }
             }
@@ -513,13 +563,13 @@
     "modules": [
         {
             "name": "DesignSystemModule",
-            "id": "module-DesignSystemModule-070753beda56ac08a52d5ed287c396506e2a3b63cfeea194734b5c2022ff774781bc9d56687b848611062a1a784cd83add17770480da316ffb2c5b277cd7fe44",
+            "id": "module-DesignSystemModule-d24db03629ea08672b87fbb67defff1a425181aac4bd8cf64c9f3bc93cc7eae19b779a4239e6b4d3c0fdb3ff4609de4173a4317c838273e1fac44e99163f955c",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "projects/design-system/src/lib/design-system/design-system.module.ts",
+            "file": "projects/design-system/src/lib/design-system.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent, InputComponent, SelectComponent } from '../../public-api';\n\n\n\n@NgModule({\n  declarations: [\n    ButtonComponent,\n    SelectComponent,\n    InputComponent\n  ],\n  imports: [\n    CommonModule,\n    ButtonComponent,\n    SelectComponent,\n    InputComponent\n  ]\n})\nexport class DesignSystemModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { CommonModule } from '@angular/common';\n\nimport { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';\n\nimport { ButtonComponent, InputComponent } from 'design-system';\n\n\n\n@NgModule({\n  declarations: [\n    ButtonComponent,\n    InputComponent,\n  ],\n  imports: [\n    CommonModule,\n    BrowserModule,\n    FormsModule,\n    FormBuilder,\n    FormGroup,\n    ReactiveFormsModule\n  ],\n  exports: [\n    ButtonComponent,\n    InputComponent,\n  ]\n})\nexport class DesignSystemModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -533,9 +583,6 @@
                         },
                         {
                             "name": "InputComponent"
-                        },
-                        {
-                            "name": "SelectComponent"
                         }
                     ]
                 },
@@ -543,19 +590,23 @@
                     "type": "imports",
                     "elements": [
                         {
-                            "name": "ButtonComponent"
+                            "name": "FormBuilder"
                         },
                         {
-                            "name": "InputComponent"
-                        },
-                        {
-                            "name": "SelectComponent"
+                            "name": "FormGroup"
                         }
                     ]
                 },
                 {
                     "type": "exports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "InputComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -581,6 +632,16 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "exampleData",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -595,16 +656,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Large",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -654,16 +705,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Small",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -733,6 +774,28 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "literal type"
+                }
+            ],
+            "stories/Input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Input>",
+                    "defaultValue": "(args: Input) => ({\n  props: args,\n})"
                 }
             ],
             "stories/Select.stories.ts": [
@@ -827,38 +890,6 @@
                     "deprecationMessage": "",
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-                }
-            ],
-            "stories/Input.stories.ts": [
-                {
-                    "name": "Large",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Input>",
-                    "defaultValue": "(args: Input) => ({\n  props: args,\n})"
                 }
             ]
         },
@@ -970,12 +1001,11 @@
             },
             {
                 "filePath": "stories/Input.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Large",
+                "type": "class",
+                "linktype": "classe",
+                "name": "exampleForm",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -983,7 +1013,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Small",
+                "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -2,22 +2,24 @@
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   border: 0;
-  border-radius: 15px;
+  border-radius: 12px;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
-  transition: 700ms;
+  transition: 400ms;
+  width: 100%;
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
       rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
       rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .ipt-button:hover {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+  transform: translateY(-3px);
 }
 
 .ipt-button:active {
-  transform: scale(0.8);
+  transform: scale(0.99);
 }
 
 .ipt-button--primary {
