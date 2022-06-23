@@ -22,7 +22,7 @@ import { AbstractControl, FormControl } from '@angular/forms';
   `,
   styleUrls: ['./select.css'],
 })
-export default class SelectComponent {
+export class SelectComponent {
 
   binding: any;
   boxShadow: number = 0;

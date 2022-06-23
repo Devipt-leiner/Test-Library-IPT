@@ -37,7 +37,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/f
     `,
   styleUrls: ['./input.css'],
 })
-export default class InputComponent {
+export class InputComponent {
 
   public codeValue!: string;
   data: any[] = [];

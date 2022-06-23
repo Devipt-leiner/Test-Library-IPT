@@ -22,7 +22,7 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-4a5ad60f1336b1754c86a11ff302661f3de8f474f24fdc31fd7204d456cc23004a077ee432b6cd67124b477a1f0dbfc7d1bf1b5c71f8381db0128c875a1b4df9",
+            "id": "component-ButtonComponent-72ee24416d13d3f6fdb7209fa48082aad37a30db9601437693ef4466d3e435548af24f7ef35b1cfa8b347f35aa07f15a692c7bd08a65cf0f69525a16df9283ba",
             "file": "projects/design-system/src/lib/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -94,7 +94,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ipt-button',\n  template: `<button *ngIf=\"isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>\n\n  <button *ngIf=\"!isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n\n  @Input() primary: boolean = false;\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() label: string = 'Button';\n  @Input() isEnabled: boolean = true;\n\n  @Output() onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary && this.isEnabled === true\n      ? 'ipt-button--primary'\n      : this.isEnabled === false ? 'ipt-button--primary-disabled'\n      : 'ipt-button--secondary';\n\n    return ['ipt-button', `ipt-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ipt-button',\n  template: `<button *ngIf=\"isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>\n\n  <button *ngIf=\"!isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport class ButtonComponent {\n\n  @Input() primary: boolean = false;\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() label: string = 'Button';\n  @Input() isEnabled: boolean = true;\n\n  @Output() onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary && this.isEnabled === true\n      ? 'ipt-button--primary'\n      : this.isEnabled === false ? 'ipt-button--primary-disabled'\n      : 'ipt-button--secondary';\n\n    return ['ipt-button', `ipt-button--${this.size}`, mode];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -117,7 +117,7 @@
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-a23cf27cc09f8ab4260d09a38e2cd1fb87e4cdd578ec94b5e50e87e796448b82a73621915c032f7500d9cc084442a22c0fa2a68b5156f1d241ed8cacb924fa45",
+            "id": "component-InputComponent-6c6a7d113d2c6f2831b49c9762e732cf4ab8369e81f65992608daa97b00680f7ab4b4888c40c5e8271c55250384d12019857d2ccf1323d4b33a36e1bd6618e2b",
             "file": "projects/design-system/src/lib/components/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -137,7 +137,7 @@
                     "name": "control",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 53,
+                    "line": 52,
                     "type": "AbstractControl",
                     "decorators": []
                 },
@@ -145,7 +145,7 @@
                     "name": "iconUrl",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 52,
+                    "line": 51,
                     "type": "string",
                     "decorators": []
                 },
@@ -153,7 +153,7 @@
                     "name": "inputType",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 47,
+                    "line": 46,
                     "type": "string",
                     "decorators": []
                 },
@@ -161,7 +161,7 @@
                     "name": "list",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 51,
+                    "line": 50,
                     "type": "string",
                     "decorators": []
                 },
@@ -169,7 +169,7 @@
                     "name": "placeHolder",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 48,
+                    "line": 47,
                     "type": "string",
                     "decorators": []
                 },
@@ -178,7 +178,7 @@
                     "defaultValue": "'medium'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 49,
+                    "line": 48,
                     "type": "\"small\" | \"medium\" | \"large\"",
                     "decorators": []
                 },
@@ -186,7 +186,7 @@
                     "name": "validateText",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 50,
+                    "line": 49,
                     "type": "string",
                     "decorators": []
                 }
@@ -216,15 +216,6 @@
                     "line": 43
                 },
                 {
-                    "name": "exampleForm",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "optional": false,
-                    "description": "",
-                    "line": 45
-                },
-                {
                     "name": "formControl",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -242,41 +233,15 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-input',\n  template: `\n    <div class=\"input-container\">\n      <input *ngIf=\"inputType === 'date'\"\n        type=\"{{ inputType ? 'text' : 'date' }}\"\n        placeholder=\"{{ placeHolder }}\"\n        [formControl]=\"formControl\"\n        [ngClass]=\"classes\"\n        onfocus=\"this.type='date';\"\n        onblur=\"javascript: if( !this.value ) this.type='text';\"\n        uib-datepicker-popup=\"dd/MM/yyyy\"\n        ng-model=\"inputType\"/>\n\n      <input *ngIf=\"inputType !== 'date'\"\n        [ngStyle]=\"{\n          'box-shadow':\n          formControl.value === ''\n          ? 'box-shadow: rgba(100, 100, 111, 0.2);'\n          : formControl.valid\n          ? '1px 1px 7.5px #1b5e20'\n          : '1px 1px 7.5px #b71c1c'\n        }\"\n        class=\"input\"\n        type=\"{{ inputType }}\"\n        placeholder=\"{{ placeHolder }}\"\n        [formControl]=\"formControl\"\n        [attr.list]=\"list\"/>\n\n      <p *ngIf=\"!formControl.valid && formControl.value !== ''\">\n        {{ validateText }}\n      </p>\n    </div>\n    `,\n  styleUrls: ['./input.css'],\n})\nexport default class InputComponent {\n\n  public codeValue!: string;\n  data: any[] = [];\n  formControl!: FormControl;\n  exampleForm!: FormGroup;\n\n  @Input() inputType!: string;\n  @Input() placeHolder!: string;\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() validateText?: string;\n  @Input() list?: string; //Para el datalist\n  @Input() iconUrl?: string;\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  constructor(fb: FormBuilder) {\n    this.exampleForm = fb.group({\n      value: ['']\n    });\n  }\n\n  public get classes(): string {\n    return this.size === 'small'\n    ? 'ipt-input--small'\n    : 'ipt-input--large'\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-input',\n  template: `\n    <div class=\"input-container\">\n      <input *ngIf=\"inputType === 'date'\"\n        type=\"{{ inputType ? 'text' : 'date' }}\"\n        placeholder=\"{{ placeHolder }}\"\n        [formControl]=\"formControl\"\n        [ngClass]=\"classes\"\n        onfocus=\"this.type='date';\"\n        onblur=\"javascript: if( !this.value ) this.type='text';\"\n        uib-datepicker-popup=\"dd/MM/yyyy\"\n        ng-model=\"inputType\"/>\n\n      <input *ngIf=\"inputType !== 'date'\"\n        [ngStyle]=\"{\n          'box-shadow':\n          formControl.value === ''\n          ? 'box-shadow: rgba(100, 100, 111, 0.2);'\n          : formControl.valid\n          ? '1px 1px 7.5px #1b5e20'\n          : '1px 1px 7.5px #b71c1c'\n        }\"\n        class=\"input\"\n        type=\"{{ inputType }}\"\n        placeholder=\"{{ placeHolder }}\"\n        [formControl]=\"formControl\"\n        [attr.list]=\"list\"/>\n\n      <p *ngIf=\"!formControl.valid && formControl.value !== ''\">\n        {{ validateText }}\n      </p>\n    </div>\n    `,\n  styleUrls: ['./input.css'],\n})\nexport class InputComponent {\n\n  public codeValue!: string;\n  data: any[] = [];\n  formControl!: FormControl;\n\n  @Input() inputType!: string;\n  @Input() placeHolder!: string;\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() validateText?: string;\n  @Input() list?: string; //Para el datalist\n  @Input() iconUrl?: string;\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  public get classes(): string {\n    return this.size === 'small'\n    ? 'ipt-input--small'\n    : 'ipt-input--large'\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n@media screen and (min-width: 320px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 12px;\n    padding-left: 15px;\n  }\n}\n\n@media screen and (min-width: 768px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 14px;\n    padding-left: 15px;\n  }\n}\n\n@media screen and (min-width: 1024px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 16px;\n    padding-left: 15px;\n  }\n}\n\ninput {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  transition: 500ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 10px;\n}\n\ninput:hover {\n  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,\n    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;\n}\n\n.ipt-input--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n\n.ipt-input--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n\n.ipt-input--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n@media screen and (min-width: 320px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 12px;\n    padding-left: 15px;\n  }\n}\n\n@media screen and (min-width: 768px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 14px;\n    padding-left: 15px;\n  }\n}\n\n@media screen and (min-width: 1024px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 16px;\n    padding-left: 15px;\n  }\n}\n\ninput {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  transition: 500ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n}\n\ninput:hover {\n  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,\n    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;\n}\n\n.ipt-input--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n\n.ipt-input--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n\n.ipt-input--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
                     "styleUrl": "./input.css"
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [
-                    {
-                        "name": "fb",
-                        "type": "FormBuilder",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "line": 57,
-                "jsdoctags": [
-                    {
-                        "name": "fb",
-                        "type": "FormBuilder",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
             "accessors": {
                 "control": {
                     "name": "control",
@@ -294,7 +259,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 53,
+                        "line": 52,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -314,7 +279,232 @@
                         "name": "classes",
                         "type": "string",
                         "returnType": "string",
-                        "line": 65
+                        "line": 58
+                    }
+                }
+            }
+        },
+        {
+            "name": "SelectComponent",
+            "id": "component-SelectComponent-9e3eb6fb99c2543071fc0ce91904a0374db17cc553c1eaf6caee4a786f1390330ee3c5e227cccaeea8b86ce2a968ad6722caaed6b44faa75d4d15c2d6f58682c",
+            "file": "projects/design-system/src/lib/components/select/select.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ipt-select",
+            "styleUrls": [
+                "./select.css"
+            ],
+            "styles": [],
+            "template": "<select\n  [(ngModel)]=\"binding\"\n  (ngModelChange)=\"seleccionar($event)\"\n  [ngClass]=\"textClass\"\n  [ngStyle]=\"{\n    'box-shadow':\n    boxShadow === 2\n    ? '1px 1px 7.5px #b71c1c'\n    : (boxShadow === 1 ? '1px 1px 7.5px #1b5e20' : 'box-shadow: rgba(100, 100, 111, 0.2);')\n  }\">\n  <option *ngIf=\"defaultText !== ''\" disabled hidden selected>{{ defaultText }}</option>\n  <option *ngFor=\"let item of data; index as i\" [value]=\"item.code\">\n    {{ item.name }} {{ item.prefix }}\n  </option>\n</select>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "AbstractControl",
+                    "decorators": []
+                },
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "any[]",
+                    "decorators": []
+                },
+                {
+                    "name": "defaultText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "isRequired",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "selectCode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "eventSelect",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "binding",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
+                },
+                {
+                    "name": "boxShadow",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 28
+                },
+                {
+                    "name": "formControl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormControl",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 59,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "seleccionar",
+                    "args": [
+                        {
+                            "name": "evt",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 50,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "evt",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';\nimport { AbstractControl, FormControl } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-select',\n  template: `\n    <select\n      [(ngModel)]=\"binding\"\n      (ngModelChange)=\"seleccionar($event)\"\n      [ngClass]=\"textClass\"\n      [ngStyle]=\"{\n        'box-shadow':\n        boxShadow === 2\n        ? '1px 1px 7.5px #b71c1c'\n        : (boxShadow === 1 ? '1px 1px 7.5px #1b5e20' : 'box-shadow: rgba(100, 100, 111, 0.2);')\n      }\">\n      <option *ngIf=\"defaultText !== ''\" disabled hidden selected>{{ defaultText }}</option>\n      <option *ngFor=\"let item of data; index as i\" [value]=\"item.code\">\n        {{ item.name }} {{ item.prefix }}\n      </option>\n    </select>\n  `,\n  styleUrls: ['./select.css'],\n})\nexport class SelectComponent {\n\n  binding: any;\n  boxShadow: number = 0;\n  formControl!: FormControl;\n\n  @Input() isRequired!: boolean; // temas de validacion\n  // objeto que me trae el listado\n  @Input() data!: any[]; // recibe un array de cualquier cosa\n  @Input() defaultText!: any;\n  @Input() selectCode!:string;\n  @Output() eventSelect = new EventEmitter<string>();\n  // type viene de otro componente -> indica de que tipo es el arreglo si pregrade, posgrade o modo\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if( changes['data']){\n      this.binding = this.defaultText;\n    }\n  }\n\n  seleccionar(evt: string){\n    if (this.eventSelect.emit(evt) !== this.defaultText) {\n      this.boxShadow = 1;\n    }\n    else {\n      this.boxShadow = 2;\n    }\n  }\n\n  ngOnInit(): void {\n    this.binding = this.defaultText;\n  }\n\n  public get textClass(): string {\n    return this.defaultText === '' ? 'selected' : 'select';\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n.select {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  transition: 500ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  -webkit-appearance: none;\n  background-color: white;\n  height: 30px;\n  padding-left: 10px;\n  color: gray;\n}\n\n.selected {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  transition: 500ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n}\n\nselect:hover {\n  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,\n    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;\n}\n",
+                    "styleUrl": "./select.css"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "control": {
+                    "name": "control",
+                    "setSignature": {
+                        "name": "control",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "AbstractControl",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 38,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "AbstractControl",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "textClass": {
+                    "name": "textClass",
+                    "getSignature": {
+                        "name": "textClass",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 63
                     }
                 }
             }
@@ -323,13 +513,13 @@
     "modules": [
         {
             "name": "DesignSystemModule",
-            "id": "module-DesignSystemModule-d36e07f070da24d29d8c20c1d74228bbee1172ba04ef6186ba09c4ea6e05087c40fe173628292726adef4c16ea0b5201936943b44cd7edc57a7ebcaaddfc63ec",
+            "id": "module-DesignSystemModule-070753beda56ac08a52d5ed287c396506e2a3b63cfeea194734b5c2022ff774781bc9d56687b848611062a1a784cd83add17770480da316ffb2c5b277cd7fe44",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "projects/design-system/src/lib/design-system.module.ts",
+            "file": "projects/design-system/src/lib/design-system/design-system.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\"\nimport { FormBuilder, FormsModule, ReactiveFormsModule } from \"@angular/forms\"\nimport ButtonComponent from \"./components/button/button.component\"\nimport InputComponent from \"./components/input/input.component\"\n\n@NgModule({\n  declarations: [\n    ButtonComponent,\n    InputComponent\n  ],\n  imports: [\n    FormsModule,\n    FormBuilder,\n    ReactiveFormsModule,\n    ButtonComponent,\n    InputComponent\n  ],\n  exports: [\n    FormsModule,\n    FormBuilder,\n    ReactiveFormsModule,\n    ButtonComponent,\n    InputComponent\n  ],\n})\n\nexport class DesignSystemModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent, InputComponent, SelectComponent } from '../../public-api';\n\n\n\n@NgModule({\n  declarations: [\n    ButtonComponent,\n    SelectComponent,\n    InputComponent\n  ],\n  imports: [\n    CommonModule,\n    ButtonComponent,\n    SelectComponent,\n    InputComponent\n  ]\n})\nexport class DesignSystemModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -343,6 +533,9 @@
                         },
                         {
                             "name": "InputComponent"
+                        },
+                        {
+                            "name": "SelectComponent"
                         }
                     ]
                 },
@@ -353,26 +546,16 @@
                             "name": "ButtonComponent"
                         },
                         {
-                            "name": "FormBuilder"
+                            "name": "InputComponent"
                         },
                         {
-                            "name": "InputComponent"
+                            "name": "SelectComponent"
                         }
                     ]
                 },
                 {
                     "type": "exports",
-                    "elements": [
-                        {
-                            "name": "ButtonComponent"
-                        },
-                        {
-                            "name": "FormBuilder"
-                        },
-                        {
-                            "name": "InputComponent"
-                        }
-                    ]
+                    "elements": []
                 },
                 {
                     "type": "bootstrap",
@@ -398,6 +581,16 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
+                "name": "exampleData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "any[]",
+                "defaultValue": "[\n  { code: 1, name: 'Opcion 1' },\n  { code: 2, name: 'Opcion 2' },\n  { code: 3, name: 'Opcion 3' },\n]"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -412,6 +605,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -467,6 +670,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -485,6 +698,16 @@
                 "deprecationMessage": "",
                 "type": "Story<Input>",
                 "defaultValue": "(args: Input) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Select>",
+                "defaultValue": "(args: Select) => ({\n  props: args,\n})"
             }
         ],
         "functions": [],
@@ -510,6 +733,48 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "literal type"
+                }
+            ],
+            "stories/Select.stories.ts": [
+                {
+                    "name": "exampleData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[]",
+                    "defaultValue": "[\n  { code: 1, name: 'Opcion 1' },\n  { code: 2, name: 'Opcion 2' },\n  { code: 3, name: 'Opcion 3' },\n]"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Select>",
+                    "defaultValue": "(args: Select) => ({\n  props: args,\n})"
                 }
             ],
             "stories/Button.stories.ts": [
@@ -621,6 +886,15 @@
                 "linktype": "component",
                 "name": "InputComponent",
                 "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/select/select.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SelectComponent",
+                "coveragePercent": 0,
                 "coverageCount": "0/13",
                 "status": "low"
             },
@@ -716,6 +990,46 @@
             },
             {
                 "filePath": "stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "exampleData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Select.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

@@ -2,6 +2,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "paths": {
+      "design-system": ["projects/design-system/src/public-api.ts"]
+    },
     "outDir": "../../out-tsc/lib",
     "declaration": true,
     "declarationMap": true,
