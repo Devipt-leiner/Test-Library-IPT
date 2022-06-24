@@ -17,7 +17,7 @@ import { AbstractControl, FormControl } from "@angular/forms";
   styleUrls: ['./radio.css']
 })
 
-export default class RadioComponent {
+export class RadioComponent {
 
   @Input() radioOption: boolean = false;
   @Input() set control(value: AbstractControl) {

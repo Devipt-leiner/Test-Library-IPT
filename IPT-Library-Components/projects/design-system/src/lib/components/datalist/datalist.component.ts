@@ -24,7 +24,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
   `,
   styleUrls: ['./datalist.css'],
 })
-export default class DatalistComponent {
+export class DatalistComponent {
 
   @Input() datalistId!: string;
   @Input() datalistData!: any[];

@@ -19,7 +19,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   </button>`,
   styleUrls: ['./button.css'],
 })
-export default class ButtonComponent {
+export class ButtonComponent {
 
   @Input() primary: boolean = false;
   @Input() size: 'small' | 'medium' | 'large' = 'medium';

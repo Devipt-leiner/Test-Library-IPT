@@ -61,7 +61,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
     `,
   styleUrls: ['./input.css'],
 })
-export default class InputComponent {
+export class InputComponent {
 
   public codeValue!: string;
   data: any[] = [];

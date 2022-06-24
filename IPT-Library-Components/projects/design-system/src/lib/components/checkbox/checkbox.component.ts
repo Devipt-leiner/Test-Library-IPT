@@ -17,7 +17,7 @@ import { AbstractControl, FormControl } from "@angular/forms";
   styleUrls: ['./checkbox.css']
 })
 
-export default class CheckboxComponent {
+export class CheckboxComponent {
 
   @Input() checkboxOption: boolean = false;
   @Input() set control(value: AbstractControl) {

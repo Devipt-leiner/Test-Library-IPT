@@ -18,7 +18,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
   styleUrls: ['./aside-button.css']
 })
 
-export default class AsideButtonComponent {
+export class AsideButtonComponent {
   @Input() icon!: string;
   @Input() text!: string;
   @Input() type!: string;
