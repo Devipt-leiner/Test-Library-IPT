@@ -46,6 +46,7 @@ input {
   height: 28px;
   padding-left: 10px;
   background: transparent;
+  -webkit-appearance: none;
 }
 
 input:hover {
@@ -73,7 +74,7 @@ label {
 
  .input:focus ~ label, .input:invalid ~ label {
   top: -20px;
-  font-size: 14px;
+  font-size: 15px;
   color: #1c77f7;
  }
 

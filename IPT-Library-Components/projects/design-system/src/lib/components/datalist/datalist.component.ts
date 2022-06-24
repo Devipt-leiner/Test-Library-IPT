@@ -4,18 +4,23 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
 @Component({
   selector: 'ipt-datalist',
   template: `
-    <input
-      type="text"
-      placeholder="{{ placeHolder }}"
-      [attr.list]="datalistId"
-      (change)="optionChanged($event)"
-    />
+    <div class="input-container">
+      <label [ngClass]="labelClass">{{ placeHolder }}</label>
+      <input
+        type="text"
+        class="input"
+        placeholder="{{ placeHolder }}"
+        (click)="click($event)"
+        [attr.list]="datalistId"
+        (change)="optionChanged($event)"
+      />
 
-    <datalist id="{{ datalistId }}">
-      <option *ngFor="let item of datalistData; index as i" [value]="item.name">
-        {{item.name}} {{item.last_name}}
-      </option>
-    </datalist>
+      <datalist id="{{ datalistId }}">
+        <option *ngFor="let item of datalistData; index as i" [value]="item.name">
+          {{item.name}} {{item.last_name}}
+        </option>
+      </datalist>
+    </div>
   `,
   styleUrls: ['./datalist.css'],
 })
@@ -30,6 +35,7 @@ export default class DatalistComponent {
   @Output() isChanged = new EventEmitter<string>();
 
   formControl!: FormGroup;
+  clicked: boolean = false;
 
   constructor(fb: FormBuilder) {
     this.formControl = fb.group({
@@ -52,5 +58,13 @@ export default class DatalistComponent {
       this.isChanged.emit('-1');
       this.formControl.controls['dataListControl'].setValue(null);
     }
+  }
+
+  click(value: MouseEvent) {
+    this.clicked = value.isTrusted;
+  }
+
+  public get labelClass(): string {
+    return this.clicked === false ? 'label' : 'labelUp';
   }
 }
