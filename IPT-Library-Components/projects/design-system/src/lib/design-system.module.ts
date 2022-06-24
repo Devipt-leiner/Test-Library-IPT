@@ -9,6 +9,7 @@ import ButtonComponent from './components/button/button.component';
 import CheckboxComponent from './components/checkbox/checkbox.component';
 import DatalistComponent from './components/datalist/datalist.component';
 import InputComponent from './components/input/input.component';
+import RadioComponent from './components/radio/radio.component';
 import SelectComponent from './components/select/select.component';
 
 
@@ -20,6 +21,7 @@ import SelectComponent from './components/select/select.component';
     CheckboxComponent,
     DatalistComponent,
     InputComponent,
+    RadioComponent,
     SelectComponent,
   ],
   imports: [
@@ -34,6 +36,7 @@ import SelectComponent from './components/select/select.component';
     CheckboxComponent,
     DatalistComponent,
     InputComponent,
+    RadioComponent,
     SelectComponent,
   ]
 })

@@ -8,6 +8,6 @@ export * from "./lib/components/button/button.component"
 export * from "./lib/components/checkbox/checkbox.component"
 export * from "./lib/components/datalist/datalist.component"
 export * from "./lib/components/input/input.component"
-export * from "./lib/components/input-time/input-time.component"
+export * from "./lib/components/radio/radio.component"
 export * from "./lib/components/select/select.component"
 
