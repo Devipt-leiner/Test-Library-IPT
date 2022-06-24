@@ -4,12 +4,12 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
   selector: 'ipt-aside-button',
   template: `
     <div [ngSwitch]="buttonActive">
-      <a *ngSwitchCase="0" class="flex-item-menu__link" (click)="clickAction.emit()">
+      <a *ngSwitchCase="0" class="flex-item-menu__link" (click)="clickAction()">
         <img src="{{ icon }}" alt="icon_url" />
         <p [ngStyle]="{'color': textColor}">{{ text }}</p>
       </a>
 
-      <a *ngSwitchCase="1" class="flex-item-menu__link flex-item-active" (click)="clickAction.emit()">
+      <a *ngSwitchCase="1" class="flex-item-menu__link flex-item-active" (click)="clickAction()">
         <img src="{{ icon }}" alt="icon_url" />
         <p [ngStyle]="{'color': textColor}">{{ text }}</p>
       </a>

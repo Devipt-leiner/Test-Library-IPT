@@ -10,7 +10,6 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
         class="input"
         type="{{ inputType ? 'text' : 'date' }}"
         [formControl]="formControl"
-        [ngClass]="classes"
         onfocus="this.type='date';"
         onblur="javascript: if( !this.value ) this.type='text';"
         uib-datepicker-popup="dd/MM/yyyy"
@@ -30,7 +29,6 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
         class="input"
         type="{{ inputType }}"
         [formControl]="formControl"
-        [ngClass]="classes"
         [attr.list]="list"/>
 
       <label [ngClass]="{'labelUp': formControl.value !== ''}">{{ placeHolder }}</label>

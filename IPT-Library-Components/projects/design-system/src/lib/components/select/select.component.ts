@@ -8,7 +8,7 @@ import { AbstractControl, FormControl } from '@angular/forms';
       <label [ngClass]="labelClass">{{ defaultText }}</label>
       <select
         [(ngModel)]="binding"
-        (ngModelChange)="seleccionar.emit($event)"
+        (ngModelChange)="seleccionar($event)"
         (click)="click($event)"
         [ngClass]="textClass"
         [ngStyle]="{
@@ -60,7 +60,7 @@ export default class SelectComponent {
     }
   }
 
-  click(value: PointerEvent) {
+  click(value: MouseEvent) {
     this.clicked = value.isTrusted;
   }
 

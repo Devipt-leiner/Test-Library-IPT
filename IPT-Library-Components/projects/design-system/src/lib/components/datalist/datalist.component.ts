@@ -6,12 +6,10 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
   template: `
     <input
       type="text"
-      [placeHolder]="placeHolder"
-      [validateText]="validateText"
+      placeholder="{{ placeHolder }}"
       [attr.list]="datalistId"
-      [control]="formControl.controls['dataListControl']"
       (change)="optionChanged($event)"
-    ></input>
+    />
 
     <datalist id="{{ datalistId }}">
       <option *ngFor="let item of datalistData; index as i" [value]="item.name">
