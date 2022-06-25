@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'ipt-button',
   template: `<button *ngIf="isEnabled"
-    type="button"
+    type="{{ buttonType }}"
     (click)="onClick.emit($event)"
     [ngClass]="classes"
   >
@@ -11,7 +11,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   </button>
 
   <button *ngIf="!isEnabled"
-    type="button"
+    type="{{ buttonType }}"
     (click)="onClick.emit($event)"
     [ngClass]="classes"
   >
@@ -24,6 +24,7 @@ export class ButtonComponent {
   @Input() primary: boolean = false;
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   @Input() label: string = 'Button';
+  @Input() buttonType?: string;
   @Input() isEnabled: boolean = true;
 
   @Output() onClick = new EventEmitter<Event>();

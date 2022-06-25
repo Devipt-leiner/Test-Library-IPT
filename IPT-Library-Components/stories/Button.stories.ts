@@ -1,6 +1,6 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import Button from '../projects/design-system/src/lib/components/button/button.component';
+import Button from '../projects/design-system/src/lib/components/atoms/button/button.component';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {

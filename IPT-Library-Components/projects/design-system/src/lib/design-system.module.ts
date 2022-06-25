@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AsideButtonComponent } from './components/aside-button/aside-button.component';
-import { ButtonComponent } from './components/button/button.component';
-import { CheckboxComponent } from './components/checkbox/checkbox.component';
-import { DatalistComponent } from './components/datalist/datalist.component';
-import { InputComponent } from './components/input/input.component';
-import { RadioComponent } from './components/radio/radio.component';
-import { SelectComponent } from './components/select/select.component';
+import { AsideButtonComponent } from './components/atoms/aside-button/aside-button.component';
+import { ButtonComponent } from './components/atoms/button/button.component';
+import { CheckboxComponent } from './components/atoms/checkbox/checkbox.component';
+import { DatalistComponent } from './components/atoms/datalist/datalist.component';
+import { InputComponent } from './components/atoms/input/input.component';
+import { RadioComponent } from './components/atoms/radio/radio.component';
+import { SelectComponent } from './components/atoms/select/select.component';
+
+
 
 @NgModule({
   declarations: [

@@ -2,11 +2,12 @@
   font-family: "Poppins", sans-serif;
 }
 
-.input-container {
+.select-container {
   position: relative;
+  margin-top: 30px;
 }
 
-input {
+.select {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
   border: none;
@@ -14,19 +15,35 @@ input {
   display: block;
   transition: 200ms;
   font-weight: 300;
-  margin: 15px -5px -30px -5px;
+  margin: 10px 10px -30px 10px;
   width: -webkit-fill-available;
   width: -moz-available;
   height: 28px;
   padding-left: 10px;
-  background: transparent;
+  background-color: white;
+  -webkit-appearance: none;
 }
 
-input:hover {
+.selected {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: 500ms;
+  font-weight: 300;
+  margin: 10px 10px -30px 10px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: 28px;
+  background-color: white;
+  padding-left: 10px;
+}
+
+select:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-input:focus {
+.select:focus {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   transition: 0s;
   border: 1.5px solid #1c77f7;
@@ -38,8 +55,8 @@ input:focus {
   font-weight: normal;
   position: absolute;
   pointer-events: none;
-  left: 5px;
-  top: -20px;
+  left: 20px;
+  top: 7px;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -51,15 +68,9 @@ input:focus {
   font-weight: normal;
   position: absolute;
   pointer-events: none;
-  left: 5px;
+  left: 20px;
   top: -20px;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
  }
-
-
-
-
-
-

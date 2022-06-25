@@ -2,37 +2,12 @@
   font-family: "Poppins", sans-serif;
 }
 
-@media screen and (min-width: 320px) {
-  p {
-    color: rgb(199, 58, 58);
-    font-size: 12px;
-    padding-left: 15px;
-    margin-top: 35px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  p {
-    color: rgb(199, 58, 58);
-    font-size: 14px;
-    padding-left: 15px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  p {
-    color: rgb(199, 58, 58);
-    font-size: 16px;
-    padding-left: 15px;
-  }
-}
-
 .input-container {
   position: relative;
   margin-top: 30px;
 }
 
-input {
+.input {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
   border: none;
@@ -45,21 +20,20 @@ input {
   width: -moz-available;
   height: 28px;
   padding-left: 10px;
-  background: transparent;
-  -webkit-appearance: none;
+  background-color: white;
 }
 
-input:hover {
+.input:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-input:focus {
+.input:focus {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   transition: 0s;
   border: 1.5px solid #1c77f7;
 }
 
-label {
+.label {
   color: #999;
   font-size: 15px;
   font-weight: normal;
@@ -72,14 +46,8 @@ label {
   -webkit-transition: 0.2s ease all;
 }
 
- .input:focus ~ label, .input:invalid ~ label {
-  top: -20px;
-  font-size: 15px;
-  color: #1c77f7;
- }
-
 .labelUp {
-  color: #999;
+  color: #1c77f7;
   font-size: 15px;
   font-weight: normal;
   position: absolute;

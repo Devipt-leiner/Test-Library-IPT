@@ -6,7 +6,6 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
   template: `
     <div class="input-container">
       <input *ngIf="inputType === 'date'"
-        placeholder="{{ placeHolder }}"
         class="input"
         type="{{ inputType ? 'text' : 'date' }}"
         [formControl]="formControl"
@@ -16,16 +15,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
         ng-model="inputType"/>
 
       <input *ngIf="inputType !== 'date' && inputType !== 'time'"
-        placeholder="{{ placeHolder }}"
         class="input"
-        [ngStyle]="{
-          'box-shadow':
-          formControl.value === ''
-          ? 'box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'
-          : formControl.valid
-          ? '1px 1px 7.5px #1b5e20'
-          : '1px 1px 7.5px #b71c1c'
-        }"
         class="input"
         type="{{ inputType }}"
         [formControl]="formControl"
@@ -41,15 +31,6 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
           autocomplete="on"
           value="08:00:00"
           (click)="click($event)"
-
-          [ngStyle]="{
-            'box-shadow':
-              formControl.value === ''
-                ? 'box-shadow: rgba(100, 100, 111, 0.2);'
-                : formControl.valid
-                ? '1px 1px 7.5px #1b5e20'
-                : '1px 1px 7.5px #b71c1c'
-          }"
         />
 
       <label [ngClass]="{'labelUp': formControl.value !== ''}">{{ placeHolder }}</label>

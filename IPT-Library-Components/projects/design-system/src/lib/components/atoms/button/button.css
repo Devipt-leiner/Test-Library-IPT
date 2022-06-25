@@ -37,6 +37,7 @@
 
 .ipt-button--primary-disabled:hover {
   box-shadow: none;
+  transform: translateY(0px);
 }
 
 .ipt-button--secondary {

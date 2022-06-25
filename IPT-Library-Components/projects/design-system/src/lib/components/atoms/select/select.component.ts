@@ -10,13 +10,7 @@ import { AbstractControl, FormControl } from '@angular/forms';
         [(ngModel)]="binding"
         (ngModelChange)="seleccionar($event)"
         (click)="click($event)"
-        [ngClass]="textClass"
-        [ngStyle]="{
-          'box-shadow':
-          boxShadow === 2
-          ? '1px 1px 7.5px #b71c1c'
-          : (boxShadow === 1 ? '1px 1px 7.5px #1b5e20' : 'box-shadow: rgba(100, 100, 111, 0.2);')
-        }">
+        [ngClass]="textClass">
         <option *ngFor="let item of data; index as i" [value]="item.code">
           {{ item.name }} {{ item.prefix }}
         </option>

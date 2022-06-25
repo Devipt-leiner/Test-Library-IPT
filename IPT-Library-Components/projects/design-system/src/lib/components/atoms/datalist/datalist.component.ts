@@ -9,7 +9,6 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validator
       <input
         type="text"
         class="input"
-        placeholder="{{ placeHolder }}"
         (click)="click($event)"
         [attr.list]="datalistId"
         (change)="optionChanged($event)"
