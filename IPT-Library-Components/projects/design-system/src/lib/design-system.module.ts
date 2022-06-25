@@ -12,7 +12,12 @@ import { InputComponent } from './components/atoms/input/input.component';
 import { RadioComponent } from './components/atoms/radio/radio.component';
 import { SelectComponent } from './components/atoms/select/select.component';
 
+<<<<<<< HEAD
 import { ParametersService } from './services/parameters-services/parameters.service';
+=======
+import { LoginFormComponent } from './components/forms/login-form/login-form.component';
+import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
+>>>>>>> 4bc1b5d4d227069818c1f42578261729e415dd67
 
 
 
@@ -24,7 +29,9 @@ import { ParametersService } from './services/parameters-services/parameters.ser
     DatalistComponent,
     InputComponent,
     RadioComponent,
-    SelectComponent
+    SelectComponent,
+    LoginFormComponent,
+    RegisterFormComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +47,11 @@ import { ParametersService } from './services/parameters-services/parameters.ser
     InputComponent,
     RadioComponent,
     SelectComponent,
+<<<<<<< HEAD
     ParametersService
+=======
+    LoginFormComponent
+>>>>>>> 4bc1b5d4d227069818c1f42578261729e415dd67
   ]
 })
 export class DesignSystemModule { }

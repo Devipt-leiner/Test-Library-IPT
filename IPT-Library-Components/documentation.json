@@ -14,7 +14,29 @@
             "methods": []
         }
     ],
-    "injectables": [],
+    "injectables": [
+        {
+            "name": "ParametersService",
+            "id": "injectable-ParametersService-0df3f5c80c9a12b7abda3ee365d6b2d6c83b95dc043748e2362edfa70d8dd61a788e8096fa916bf8a92c8bf378786522170141dc16e7d2692dd1a0ab8f2043f5",
+            "file": "projects/design-system/src/lib/components/services/parameters-services/parameters.service.ts",
+            "properties": [],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class ParametersService {\n\n  constructor() { }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            },
+            "type": "injectable"
+        }
+    ],
     "guards": [],
     "interceptors": [],
     "classes": [],
@@ -22,8 +44,8 @@
     "components": [
         {
             "name": "AsideButtonComponent",
-            "id": "component-AsideButtonComponent-974ffcf06511d08b22a5b3954c8436b42bf50df89b64b790bb5a4b265c7424e3d6b7dde24a81cdeb57e9643bc5fb133a33ad5ec86fe2235231ff3fc8dfc58663",
-            "file": "projects/design-system/src/lib/components/aside-button/aside-button.component.ts",
+            "id": "component-AsideButtonComponent-6c62f155c937c602807dc815b4955bb84e5167a9d0074e59c51f100a36fa2c733699fd6dc5209b0bb759c16db538bad13c900ff7d7d8ba6263ef30f7985d99ff",
+            "file": "projects/design-system/src/lib/components/atoms/aside-button/aside-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -117,7 +139,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from \"@angular/core\";\n\n@Component({\n  selector: 'ipt-aside-button',\n  template: `\n    <div [ngSwitch]=\"buttonActive\">\n      <a *ngSwitchCase=\"0\" class=\"flex-item-menu__link\" (click)=\"clickAction()\">\n        <img src=\"{{ icon }}\" alt=\"icon_url\" />\n        <p [ngStyle]=\"{'color': textColor}\">{{ text }}</p>\n      </a>\n\n      <a *ngSwitchCase=\"1\" class=\"flex-item-menu__link flex-item-active\" (click)=\"clickAction()\">\n        <img src=\"{{ icon }}\" alt=\"icon_url\" />\n        <p [ngStyle]=\"{'color': textColor}\">{{ text }}</p>\n      </a>\n    </div>\n  `,\n  styleUrls: ['./aside-button.css']\n})\n\nexport default class AsideButtonComponent {\n  @Input() icon!: string;\n  @Input() text!: string;\n  @Input() type!: string;\n  @Input() url?: string;\n  @Input() textColor!: string\n  @Input() buttonActive?: boolean;\n  @Output() isClicked = new EventEmitter<boolean>();\n\n\n  clickAction() {\n    this.isClicked.emit(true);\n  }\n\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from \"@angular/core\";\n\n@Component({\n  selector: 'ipt-aside-button',\n  template: `\n    <div [ngSwitch]=\"buttonActive\">\n      <a *ngSwitchCase=\"0\" class=\"flex-item-menu__link\" (click)=\"clickAction()\">\n        <img src=\"{{ icon }}\" alt=\"icon_url\" />\n        <p [ngStyle]=\"{'color': textColor}\">{{ text }}</p>\n      </a>\n\n      <a *ngSwitchCase=\"1\" class=\"flex-item-menu__link flex-item-active\" (click)=\"clickAction()\">\n        <img src=\"{{ icon }}\" alt=\"icon_url\" />\n        <p [ngStyle]=\"{'color': textColor}\">{{ text }}</p>\n      </a>\n    </div>\n  `,\n  styleUrls: ['./aside-button.css']\n})\n\nexport class AsideButtonComponent {\n  @Input() icon!: string;\n  @Input() text!: string;\n  @Input() type!: string;\n  @Input() url?: string;\n  @Input() textColor!: string\n  @Input() buttonActive?: boolean;\n  @Output() isClicked = new EventEmitter<boolean>();\n\n\n  clickAction() {\n    this.isClicked.emit(true);\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -129,8 +151,8 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-4a5ad60f1336b1754c86a11ff302661f3de8f474f24fdc31fd7204d456cc23004a077ee432b6cd67124b477a1f0dbfc7d1bf1b5c71f8381db0128c875a1b4df9",
-            "file": "projects/design-system/src/lib/components/button/button.component.ts",
+            "id": "component-ButtonComponent-f3d4debe067b17db35097e7bd49dc0814916c5ab9eb29887fe56b30b1cb4fddddf549612253d81c1a6df5bc6443850ec206521ec322e013393cec57c829d5890",
+            "file": "projects/design-system/src/lib/components/atoms/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -141,16 +163,24 @@
                 "./button.css"
             ],
             "styles": [],
-            "template": "<button *ngIf=\"isEnabled\"    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>\n\n  <button *ngIf=\"!isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>",
+            "template": "<button *ngIf=\"isEnabled\"    type=\"{{ buttonType }}\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>\n\n  <button *ngIf=\"!isEnabled\"\n    type=\"{{ buttonType }}\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
+                {
+                    "name": "buttonType",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "string",
+                    "decorators": []
+                },
                 {
                     "name": "isEnabled",
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 28,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -188,7 +218,7 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 30,
                     "type": "EventEmitter"
                 }
             ],
@@ -201,11 +231,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ipt-button',\n  template: `<button *ngIf=\"isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>\n\n  <button *ngIf=\"!isEnabled\"\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n\n  @Input() primary: boolean = false;\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() label: string = 'Button';\n  @Input() isEnabled: boolean = true;\n\n  @Output() onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary && this.isEnabled === true\n      ? 'ipt-button--primary'\n      : this.isEnabled === false ? 'ipt-button--primary-disabled'\n      : 'ipt-button--secondary';\n\n    return ['ipt-button', `ipt-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ipt-button',\n  template: `<button *ngIf=\"isEnabled\"\n    type=\"{{ buttonType }}\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>\n\n  <button *ngIf=\"!isEnabled\"\n    type=\"{{ buttonType }}\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport class ButtonComponent {\n\n  @Input() primary: boolean = false;\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n  @Input() label: string = 'Button';\n  @Input() buttonType?: string;\n  @Input() isEnabled: boolean = true;\n\n  @Output() onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary && this.isEnabled === true\n      ? 'ipt-button--primary'\n      : this.isEnabled === false ? 'ipt-button--primary-disabled'\n      : 'ipt-button--secondary';\n\n    return ['ipt-button', `ipt-button--${this.size}`, mode];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".ipt-button {\n  font-family: \"Poppins\", sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 12px;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n  transition: 400ms;\n  width: 100%;\n  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,\n      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,\n      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;\n}\n\n.ipt-button:hover {\n  box-shadow: 0 10px 20px rgba(27, 27, 27, .5);\n  transform: translateY(-3px);\n}\n\n.ipt-button:active {\n  transform: scale(0.99);\n}\n\n.ipt-button--primary {\n  color: white;\n  background-color: #1c77f7;\n}\n\n.ipt-button--primary-disabled {\n  color: gray;\n  background-color: #ffffff;\n  border: 1px solid gray;\n  box-shadow: none;\n  cursor: not-allowed;\n}\n\n.ipt-button--primary-disabled:hover {\n  box-shadow: none;\n}\n\n.ipt-button--secondary {\n  color: #1c77f7;\n  background-color: rgb(255, 255, 255);\n  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,\n      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,\n      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;\n}\n\n.ipt-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n\n.ipt-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n\n.ipt-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "data": ".ipt-button {\n  font-family: \"Poppins\", sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 12px;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n  transition: 400ms;\n  width: 100%;\n  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,\n      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,\n      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;\n}\n\n.ipt-button:hover {\n  box-shadow: 0 10px 20px rgba(27, 27, 27, .5);\n  transform: translateY(-3px);\n}\n\n.ipt-button:active {\n  transform: scale(0.99);\n}\n\n.ipt-button--primary {\n  color: white;\n  background-color: #1c77f7;\n}\n\n.ipt-button--primary-disabled {\n  color: gray;\n  background-color: #ffffff;\n  border: 1px solid gray;\n  box-shadow: none;\n  cursor: not-allowed;\n}\n\n.ipt-button--primary-disabled:hover {\n  box-shadow: none;\n  transform: translateY(0px);\n}\n\n.ipt-button--secondary {\n  color: #1c77f7;\n  background-color: rgb(255, 255, 255);\n  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,\n      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,\n      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;\n}\n\n.ipt-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n\n.ipt-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n\n.ipt-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
                     "styleUrl": "./button.css"
                 }
             ],
@@ -217,15 +247,15 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 31
+                        "line": 32
                     }
                 }
             }
         },
         {
             "name": "CheckboxComponent",
-            "id": "component-CheckboxComponent-7ea90b6a6d644209e8af1a30963eaa33514168d36d7eae3a39f93526efda2439b121b959c22b0fc814e621aec10a80ac6848f325813d05fd187142aa9f938e8a",
-            "file": "projects/design-system/src/lib/components/checkbox/checkbox.component.ts",
+            "id": "component-CheckboxComponent-e74862c1a4a0e9199a23a8b14e1a130d16498dcd0b67cbcb72a3eb3ab4a011e5af51caff50402e5dc654c9d1bfb39fbe73007c8416252fc59f62d45d380f62d1",
+            "file": "projects/design-system/src/lib/components/atoms/checkbox/checkbox.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -287,7 +317,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from \"@angular/core\";\nimport { AbstractControl, FormControl } from \"@angular/forms\";\n\n@Component({\n  selector: 'ipt-checkbox',\n  template: `\n    <label class=\"cont\">\n      <input\n        class=\"checkbox\"\n        [formControl]=\"formControl\"\n        [checked]=\"checkboxOption\"\n        (click)=\"onChecked.emit($event)\"\n        type=\"checkbox\">\n      <span></span>\n    </label>\n  `,\n  styleUrls: ['./checkbox.css']\n})\n\nexport default class CheckboxComponent {\n\n  @Input() checkboxOption: boolean = false;\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  @Output() onChecked = new EventEmitter<Event>();\n\n  formControl!: FormControl;\n\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from \"@angular/core\";\nimport { AbstractControl, FormControl } from \"@angular/forms\";\n\n@Component({\n  selector: 'ipt-checkbox',\n  template: `\n    <label class=\"cont\">\n      <input\n        class=\"checkbox\"\n        [formControl]=\"formControl\"\n        [checked]=\"checkboxOption\"\n        (click)=\"onChecked.emit($event)\"\n        type=\"checkbox\">\n      <span></span>\n    </label>\n  `,\n  styleUrls: ['./checkbox.css']\n})\n\nexport class CheckboxComponent {\n\n  @Input() checkboxOption: boolean = false;\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  @Output() onChecked = new EventEmitter<Event>();\n\n  formControl!: FormControl;\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -331,8 +361,8 @@
         },
         {
             "name": "DatalistComponent",
-            "id": "component-DatalistComponent-7742eccc01d414bbcb47e4e894f9e8eb2f8fdca439e4290245d0e276e9a35aa33db0ba7673f0b24d070c034534327b4428e519c1281cd5284952ca9553978d13",
-            "file": "projects/design-system/src/lib/components/datalist/datalist.component.ts",
+            "id": "component-DatalistComponent-cee26a53083056a6aa20511c6fb8b3bd8a4427583ebce2866d9dd01eff5d75985dad9252604ad58fa2999f4451b83dd70934680ad38a05dc2abac0133e18ce34",
+            "file": "projects/design-system/src/lib/components/atoms/datalist/datalist.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -343,7 +373,7 @@
                 "./datalist.css"
             ],
             "styles": [],
-            "template": "<input\n  type=\"text\"\n  placeholder=\"{{ placeHolder }}\"\n  [attr.list]=\"datalistId\"\n  (change)=\"optionChanged($event)\"\n/>\n\n<datalist id=\"{{ datalistId }}\">\n  <option *ngFor=\"let item of datalistData; index as i\" [value]=\"item.name\">\n    {{item.name}} {{item.last_name}}\n  </option>\n</datalist>\n",
+            "template": "<div class=\"input-container\">\n  <label [ngClass]=\"labelClass\">{{ placeHolder }}</label>\n  <input\n    type=\"text\"\n    class=\"input\"\n    (click)=\"click($event)\"\n    [attr.list]=\"datalistId\"\n    (change)=\"optionChanged($event)\"\n  />\n\n  <datalist id=\"{{ datalistId }}\">\n    <option *ngFor=\"let item of datalistData; index as i\" [value]=\"item.name\">\n      {{item.name}} {{item.last_name}}\n    </option>\n  </datalist>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
@@ -351,7 +381,7 @@
                     "name": "datalistData",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 29,
                     "type": "any[]",
                     "decorators": []
                 },
@@ -359,7 +389,7 @@
                     "name": "datalistId",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 28,
                     "type": "string",
                     "decorators": []
                 },
@@ -367,7 +397,7 @@
                     "name": "initalData",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
+                    "line": 32,
                     "type": "string",
                     "decorators": []
                 },
@@ -375,7 +405,7 @@
                     "name": "placeHolder",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 30,
                     "type": "string",
                     "decorators": []
                 },
@@ -383,7 +413,7 @@
                     "name": "validateText",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 31,
                     "type": "string",
                     "decorators": []
                 }
@@ -394,11 +424,21 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 34,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [
+                {
+                    "name": "clicked",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 37
+                },
                 {
                     "name": "formControl",
                     "deprecated": false,
@@ -406,17 +446,45 @@
                     "type": "FormGroup",
                     "optional": false,
                     "description": "",
-                    "line": 32
+                    "line": 36
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "click",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 62,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 45,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -433,7 +501,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 46,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -456,11 +524,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';\nimport { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-datalist',\n  template: `\n    <input\n      type=\"text\"\n      placeholder=\"{{ placeHolder }}\"\n      [attr.list]=\"datalistId\"\n      (change)=\"optionChanged($event)\"\n    />\n\n    <datalist id=\"{{ datalistId }}\">\n      <option *ngFor=\"let item of datalistData; index as i\" [value]=\"item.name\">\n        {{item.name}} {{item.last_name}}\n      </option>\n    </datalist>\n  `,\n  styleUrls: ['./datalist.css'],\n})\nexport default class DatalistComponent {\n\n  @Input() datalistId!: string;\n  @Input() datalistData!: any[];\n  @Input() placeHolder!: string;\n  @Input() validateText!: string;\n  @Input() initalData!: string;\n\n  @Output() isChanged = new EventEmitter<string>();\n\n  formControl!: FormGroup;\n\n  constructor(fb: FormBuilder) {\n    this.formControl = fb.group({\n      dataListControl: ['', [Validators.required]],\n    });\n   }\n\n  ngOnInit(): void {\n    if(this.initalData != null) {\n      this.formControl.controls['dataListControl'].setValue(this.initalData);\n    }\n  }\n\n  optionChanged(event: any) {\n    let selectOption = this.datalistData.find(element =>  element.name == event.target.value);\n\n    if (typeof(selectOption) != 'undefined') {\n      this.isChanged.emit(selectOption.code);\n    } else {\n      this.isChanged.emit('-1');\n      this.formControl.controls['dataListControl'].setValue(null);\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';\nimport { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-datalist',\n  template: `\n    <div class=\"input-container\">\n      <label [ngClass]=\"labelClass\">{{ placeHolder }}</label>\n      <input\n        type=\"text\"\n        class=\"input\"\n        (click)=\"click($event)\"\n        [attr.list]=\"datalistId\"\n        (change)=\"optionChanged($event)\"\n      />\n\n      <datalist id=\"{{ datalistId }}\">\n        <option *ngFor=\"let item of datalistData; index as i\" [value]=\"item.name\">\n          {{item.name}} {{item.last_name}}\n        </option>\n      </datalist>\n    </div>\n  `,\n  styleUrls: ['./datalist.css'],\n})\nexport class DatalistComponent {\n\n  @Input() datalistId!: string;\n  @Input() datalistData!: any[];\n  @Input() placeHolder!: string;\n  @Input() validateText!: string;\n  @Input() initalData!: string;\n\n  @Output() isChanged = new EventEmitter<string>();\n\n  formControl!: FormGroup;\n  clicked: boolean = false;\n\n  constructor(fb: FormBuilder) {\n    this.formControl = fb.group({\n      dataListControl: ['', [Validators.required]],\n    });\n   }\n\n  ngOnInit(): void {\n    if(this.initalData != null) {\n      this.formControl.controls['dataListControl'].setValue(this.initalData);\n    }\n  }\n\n  optionChanged(event: any) {\n    let selectOption = this.datalistData.find(element =>  element.name == event.target.value);\n\n    if (typeof(selectOption) != 'undefined') {\n      this.isChanged.emit(selectOption.code);\n    } else {\n      this.isChanged.emit('-1');\n      this.formControl.controls['dataListControl'].setValue(null);\n    }\n  }\n\n  click(value: MouseEvent) {\n    this.clicked = value.isTrusted;\n  }\n\n  public get labelClass(): string {\n    return this.clicked === false ? 'label' : 'labelUp';\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n.input-container {\n  position: relative;\n  margin-top: 30px;\n}\n\n.input {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  display: block;\n  transition: 200ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n  background-color: white;\n}\n\n.input:hover {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n}\n\n.input:focus {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  transition: 0s;\n  border: 1.5px solid #1c77f7;\n}\n\n.label {\n  color: #999;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: 7px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n}\n\n.labelUp {\n  color: #1c77f7;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: -20px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n }\n\n\n\n\n\n\n",
                     "styleUrl": "./datalist.css"
                 }
             ],
@@ -478,7 +546,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 32,
+                "line": 37,
                 "jsdoctags": [
                     {
                         "name": "fb",
@@ -490,12 +558,23 @@
                         }
                     }
                 ]
+            },
+            "accessors": {
+                "labelClass": {
+                    "name": "labelClass",
+                    "getSignature": {
+                        "name": "labelClass",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 66
+                    }
+                }
             }
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-3e8b6e0f3ac42f5f20bb5f370ab8544f3c486d4f3975e0ebc9c28e34b7d145739517e12ca4405c047428add417ca308797fe627bf656b0fdabb7babd3dc55ff8",
-            "file": "projects/design-system/src/lib/components/input/input.component.ts",
+            "id": "component-InputComponent-e5b7c9b2e2d4bf5c672b8df05ea275d395ba57777b04f9a2cf9da48dd67c6cda513dbb34831dbf187f53faf42a491be8fe0740df4819c705913988febc0d3bf6",
+            "file": "projects/design-system/src/lib/components/atoms/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -506,7 +585,7 @@
                 "./input.css"
             ],
             "styles": [],
-            "template": "<div class=\"input-container\">\n  <input *ngIf=\"inputType === 'date'\"\n    placeholder=\"{{ placeHolder }}\"\n    class=\"input\"\n    type=\"{{ inputType ? 'text' : 'date' }}\"\n    [formControl]=\"formControl\"\n    onfocus=\"this.type='date';\"\n    onblur=\"javascript: if( !this.value ) this.type='text';\"\n    uib-datepicker-popup=\"dd/MM/yyyy\"\n    ng-model=\"inputType\"/>\n\n  <input *ngIf=\"inputType !== 'date'\"\n    placeholder=\"{{ placeHolder }}\"\n    class=\"input\"\n    [ngStyle]=\"{\n      'box-shadow':\n      formControl.value === ''\n      ? 'box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'\n      : formControl.valid\n      ? '1px 1px 7.5px #1b5e20'\n      : '1px 1px 7.5px #b71c1c'\n    }\"\n    class=\"input\"\n    type=\"{{ inputType }}\"\n    [formControl]=\"formControl\"\n    [attr.list]=\"list\"/>\n\n  <label [ngClass]=\"{'labelUp': formControl.value !== ''}\">{{ placeHolder }}</label>\n\n  <p *ngIf=\"!formControl.valid && formControl.value !== '' && formControl.touched\">\n    {{ validateText }}\n  </p>\n</div>\n",
+            "template": "<div class=\"input-container\">\n  <input *ngIf=\"inputType === 'date'\"\n    class=\"input\"\n    type=\"{{ inputType ? 'text' : 'date' }}\"\n    [formControl]=\"formControl\"\n    onfocus=\"this.type='date';\"\n    onblur=\"javascript: if( !this.value ) this.type='text';\"\n    uib-datepicker-popup=\"dd/MM/yyyy\"\n    ng-model=\"inputType\"/>\n\n  <input *ngIf=\"inputType !== 'date' && inputType !== 'time'\"\n    class=\"input\"\n    class=\"input\"\n    type=\"{{ inputType }}\"\n    [formControl]=\"formControl\"\n    [attr.list]=\"list\"/>\n\n    <input *ngIf=\"inputType === 'time'\"\n      class=\"input\"\n      type=\"time\"\n      [formControl]=\"formControl\"\n      [min]=\"'06:00:00'\"\n      max=\"22:00:00\"\n      step=\"900\"\n      autocomplete=\"on\"\n      value=\"08:00:00\"\n      (click)=\"click($event)\"\n    />\n\n  <label [ngClass]=\"{'labelUp': formControl.value !== ''}\">{{ placeHolder }}</label>\n\n  <p *ngIf=\"!formControl.valid && formControl.value !== '' && formControl.touched\">\n    {{ validateText }}\n  </p>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
@@ -514,7 +593,7 @@
                     "name": "control",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 54,
+                    "line": 57,
                     "type": "AbstractControl | string",
                     "decorators": []
                 },
@@ -522,7 +601,7 @@
                     "name": "iconUrl",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 53,
+                    "line": 56,
                     "type": "string",
                     "decorators": []
                 },
@@ -530,7 +609,7 @@
                     "name": "inputType",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 49,
+                    "line": 52,
                     "type": "string",
                     "decorators": []
                 },
@@ -538,7 +617,7 @@
                     "name": "list",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 52,
+                    "line": 55,
                     "type": "string",
                     "decorators": []
                 },
@@ -546,7 +625,7 @@
                     "name": "placeHolder",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 50,
+                    "line": 53,
                     "type": "string",
                     "decorators": []
                 },
@@ -554,7 +633,7 @@
                     "name": "validateText",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 51,
+                    "line": 54,
                     "type": "string",
                     "decorators": []
                 }
@@ -562,13 +641,23 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "clicked",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 50
+                },
+                {
                     "name": "codeValue",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 45,
+                    "line": 47,
                     "modifierKind": [
                         123
                     ]
@@ -581,7 +670,7 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 46
+                    "line": 48
                 },
                 {
                     "name": "formControl",
@@ -590,166 +679,7 @@
                     "type": "FormControl",
                     "optional": false,
                     "description": "",
-                    "line": 47
-                }
-            ],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';\nimport { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-input',\n  template: `\n    <div class=\"input-container\">\n      <input *ngIf=\"inputType === 'date'\"\n        placeholder=\"{{ placeHolder }}\"\n        class=\"input\"\n        type=\"{{ inputType ? 'text' : 'date' }}\"\n        [formControl]=\"formControl\"\n        onfocus=\"this.type='date';\"\n        onblur=\"javascript: if( !this.value ) this.type='text';\"\n        uib-datepicker-popup=\"dd/MM/yyyy\"\n        ng-model=\"inputType\"/>\n\n      <input *ngIf=\"inputType !== 'date'\"\n        placeholder=\"{{ placeHolder }}\"\n        class=\"input\"\n        [ngStyle]=\"{\n          'box-shadow':\n          formControl.value === ''\n          ? 'box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'\n          : formControl.valid\n          ? '1px 1px 7.5px #1b5e20'\n          : '1px 1px 7.5px #b71c1c'\n        }\"\n        class=\"input\"\n        type=\"{{ inputType }}\"\n        [formControl]=\"formControl\"\n        [attr.list]=\"list\"/>\n\n      <label [ngClass]=\"{'labelUp': formControl.value !== ''}\">{{ placeHolder }}</label>\n\n      <p *ngIf=\"!formControl.valid && formControl.value !== '' && formControl.touched\">\n        {{ validateText }}\n      </p>\n    </div>\n    `,\n  styleUrls: ['./input.css'],\n})\nexport default class InputComponent {\n\n  public codeValue!: string;\n  data: any[] = [];\n  formControl!: FormControl;\n\n  @Input() inputType!: string;\n  @Input() placeHolder!: string;\n  @Input() validateText?: string;\n  @Input() list?: string; //Para el datalist\n  @Input() iconUrl?: string;\n  @Input() set control(value: AbstractControl | string) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n@media screen and (min-width: 320px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 12px;\n    padding-left: 15px;\n    margin-top: 35px;\n  }\n}\n\n@media screen and (min-width: 768px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 14px;\n    padding-left: 15px;\n  }\n}\n\n@media screen and (min-width: 1024px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 16px;\n    padding-left: 15px;\n  }\n}\n\n.input-container {\n  position: relative;\n  margin-top: 30px;\n}\n\ninput {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  display: block;\n  transition: 200ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n  background: transparent;\n}\n\ninput:hover {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n}\n\ninput:focus {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  transition: 0s;\n  border: 1.5px solid #1c77f7;\n}\n\nlabel {\n  color: #999;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: 7px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n}\n\n .input:focus ~ label, .input:invalid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #1c77f7;\n }\n\n.labelUp {\n  color: #999;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: -20px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n }\n\n\n\n\n\n\n",
-                    "styleUrl": "./input.css"
-                }
-            ],
-            "stylesData": "",
-            "accessors": {
-                "control": {
-                    "name": "control",
-                    "setSignature": {
-                        "name": "control",
-                        "type": "void",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "args": [
-                            {
-                                "name": "value",
-                                "type": "AbstractControl | string",
-                                "deprecated": false,
-                                "deprecationMessage": ""
-                            }
-                        ],
-                        "returnType": "void",
-                        "line": 54,
-                        "jsdoctags": [
-                            {
-                                "name": "value",
-                                "type": "AbstractControl | string",
-                                "deprecated": false,
-                                "deprecationMessage": "",
-                                "tagName": {
-                                    "text": "param"
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        },
-        {
-            "name": "SelectComponent",
-            "id": "component-SelectComponent-a9524d293ffdf9e67260138cb6c2b5a949ddd708148941d2e851e8bf03b38715b21292f5e95dd9ef485f2f0b9e2f1ddcbfd4963b3331ce988e434cff11c26881",
-            "file": "projects/design-system/src/lib/components/select/select.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "ipt-select",
-            "styleUrls": [
-                "./select.css"
-            ],
-            "styles": [],
-            "template": "<div class=\"select-container\">\n  <label [ngClass]=\"labelClass\">{{ defaultText }}</label>\n  <select\n    [(ngModel)]=\"binding\"\n    (ngModelChange)=\"seleccionar($event)\"\n    (click)=\"click($event)\"\n    [ngClass]=\"textClass\"\n    [ngStyle]=\"{\n      'box-shadow':\n      boxShadow === 2\n      ? '1px 1px 7.5px #b71c1c'\n      : (boxShadow === 1 ? '1px 1px 7.5px #1b5e20' : 'box-shadow: rgba(100, 100, 111, 0.2);')\n    }\">\n    <option *ngFor=\"let item of data; index as i\" [value]=\"item.code\">\n      {{ item.name }} {{ item.prefix }}\n    </option>\n  </select>\n</div>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "control",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 42,
-                    "type": "AbstractControl",
-                    "decorators": []
-                },
-                {
-                    "name": "data",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 37,
-                    "type": "any[]",
-                    "decorators": []
-                },
-                {
-                    "name": "defaultText",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 38,
-                    "type": "any",
-                    "decorators": []
-                },
-                {
-                    "name": "isRequired",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 35,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "selectCode",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 39,
-                    "type": "string",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "eventSelect",
-                    "defaultValue": "new EventEmitter<string>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 40,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [
-                {
-                    "name": "binding",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "any",
-                    "optional": false,
-                    "description": "",
-                    "line": 30
-                },
-                {
-                    "name": "boxShadow",
-                    "defaultValue": "0",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "number",
-                    "optional": false,
-                    "description": "",
-                    "line": 31
-                },
-                {
-                    "name": "clicked",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "optional": false,
-                    "description": "",
-                    "line": 33
-                },
-                {
-                    "name": "formControl",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormControl",
-                    "optional": false,
-                    "description": "",
-                    "line": 32
+                    "line": 49
                 }
             ],
             "methodsClass": [
@@ -780,6 +710,425 @@
                             }
                         }
                     ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';\nimport { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-input',\n  template: `\n    <div class=\"input-container\">\n      <input *ngIf=\"inputType === 'date'\"\n        class=\"input\"\n        type=\"{{ inputType ? 'text' : 'date' }}\"\n        [formControl]=\"formControl\"\n        onfocus=\"this.type='date';\"\n        onblur=\"javascript: if( !this.value ) this.type='text';\"\n        uib-datepicker-popup=\"dd/MM/yyyy\"\n        ng-model=\"inputType\"/>\n\n      <input *ngIf=\"inputType !== 'date' && inputType !== 'time'\"\n        class=\"input\"\n        class=\"input\"\n        type=\"{{ inputType }}\"\n        [formControl]=\"formControl\"\n        [attr.list]=\"list\"/>\n\n        <input *ngIf=\"inputType === 'time'\"\n          class=\"input\"\n          type=\"time\"\n          [formControl]=\"formControl\"\n          [min]=\"'06:00:00'\"\n          max=\"22:00:00\"\n          step=\"900\"\n          autocomplete=\"on\"\n          value=\"08:00:00\"\n          (click)=\"click($event)\"\n        />\n\n      <label [ngClass]=\"{'labelUp': formControl.value !== ''}\">{{ placeHolder }}</label>\n\n      <p *ngIf=\"!formControl.valid && formControl.value !== '' && formControl.touched\">\n        {{ validateText }}\n      </p>\n    </div>\n    `,\n  styleUrls: ['./input.css'],\n})\nexport class InputComponent {\n\n  public codeValue!: string;\n  data: any[] = [];\n  formControl!: FormControl;\n  clicked: boolean = false;\n\n  @Input() inputType!: string;\n  @Input() placeHolder!: string;\n  @Input() validateText?: string;\n  @Input() list?: string; //Para el datalist\n  @Input() iconUrl?: string;\n  @Input() set control(value: AbstractControl | string) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  click(value: MouseEvent) {\n    this.clicked = value.isTrusted;\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n@media screen and (min-width: 320px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 12px;\n    padding-left: 15px;\n    margin-top: 35px;\n  }\n}\n\n@media screen and (min-width: 768px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 14px;\n    padding-left: 15px;\n  }\n}\n\n@media screen and (min-width: 1024px) {\n  p {\n    color: rgb(199, 58, 58);\n    font-size: 16px;\n    padding-left: 15px;\n  }\n}\n\n.input-container {\n  position: relative;\n  margin-top: 30px;\n}\n\ninput {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  display: block;\n  transition: 200ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n  background-color: white;\n  -webkit-appearance: none;\n}\n\ninput:hover {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n}\n\ninput:focus {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  transition: 0s;\n  border: 1.5px solid #1c77f7;\n}\n\nlabel {\n  color: #999;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: 7px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n}\n\n .input:focus ~ label, .input:invalid ~ label {\n  top: -20px;\n  font-size: 15px;\n  color: #1c77f7;\n }\n\n.labelUp {\n  color: #999;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: -20px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n }\n\n\n\n\n\n\n",
+                    "styleUrl": "./input.css"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "control": {
+                    "name": "control",
+                    "setSignature": {
+                        "name": "control",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "AbstractControl | string",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 57,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "AbstractControl | string",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "LoginFormComponent",
+            "id": "component-LoginFormComponent-7ab4d5342978ed3f14e4989b82857c757ac9121c036af13cb8446eba4caa941637c84d632852f9bdc1f6877e9f9be8a82459a6dab2fe397ff943b1f943deea28",
+            "file": "projects/design-system/src/lib/components/forms/login-form/login-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-login-form",
+            "styleUrls": [
+                "./login-form.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./login-form.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-login-form',\n  templateUrl: './login-form.component.html',\n  styleUrls: ['./login-form.component.css']\n})\nexport class LoginFormComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./login-form.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>login-form works!</p>\n"
+        },
+        {
+            "name": "RadioComponent",
+            "id": "component-RadioComponent-b24ab69b064f01ae8e10bbdc89eeb2822813558ede3ab18bbce7518cbbd686dfbfc9540a545da8056f3e02d812fc85a89d1059880b19dc076b5445c0c2250541",
+            "file": "projects/design-system/src/lib/components/atoms/radio/radio.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ipt-radio",
+            "styleUrls": [
+                "./radio.css"
+            ],
+            "styles": [],
+            "template": "<label class=\"cont\">\n  <input\n    class=\"radio\"\n    [formControl]=\"formControl\"\n    [checked]=\"radioOption\"\n    (click)=\"onSelected.emit($event)\"\n    type=\"radio\">\n  <span></span>\n</label>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "AbstractControl",
+                    "decorators": []
+                },
+                {
+                    "name": "radioOption",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onSelected",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "formControl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormControl",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from \"@angular/core\";\nimport { AbstractControl, FormControl } from \"@angular/forms\";\n\n@Component({\n  selector: 'ipt-radio',\n  template: `\n    <label class=\"cont\">\n      <input\n        class=\"radio\"\n        [formControl]=\"formControl\"\n        [checked]=\"radioOption\"\n        (click)=\"onSelected.emit($event)\"\n        type=\"radio\">\n      <span></span>\n    </label>\n  `,\n  styleUrls: ['./radio.css']\n})\n\nexport class RadioComponent {\n\n  @Input() radioOption: boolean = false;\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  @Output() onSelected = new EventEmitter<Event>();\n\n  formControl!: FormControl;\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "\n\n",
+                    "styleUrl": "./radio.css"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "control": {
+                    "name": "control",
+                    "setSignature": {
+                        "name": "control",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "AbstractControl",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 23,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "AbstractControl",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "RegisterFormComponent",
+            "id": "component-RegisterFormComponent-eb39c5d282e108663a9a750948db8a3ef0ddfc5479edf8ec1eb3120391130057eef3d978be71101bb3e8ffce6b8ff31026cd2c2542f84d3e6b541e51aa62592d",
+            "file": "projects/design-system/src/lib/components/forms/register-form/register-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-register-form",
+            "styleUrls": [
+                "./register-form.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./register-form.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-register-form',\n  templateUrl: './register-form.component.html',\n  styleUrls: ['./register-form.component.css']\n})\nexport class RegisterFormComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./register-form.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>register-form works!</p>\n"
+        },
+        {
+            "name": "SelectComponent",
+            "id": "component-SelectComponent-fd65582064e38ab0ab5aae3257f778ce6135adba7f85300fdb7ae0ebe30d721c8906fcff8f7937a221f195e7421ad18f67186ca4a15260ba7d4b8c963659094b",
+            "file": "projects/design-system/src/lib/components/atoms/select/select.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ipt-select",
+            "styleUrls": [
+                "./select.css"
+            ],
+            "styles": [],
+            "template": "<div class=\"select-container\">\n  <label [ngClass]=\"labelClass\">{{ defaultText }}</label>\n  <select\n    [(ngModel)]=\"binding\"\n    (ngModelChange)=\"seleccionar($event)\"\n    (click)=\"click($event)\"\n    [ngClass]=\"textClass\">\n    <option *ngFor=\"let item of data; index as i\" [value]=\"item.code\">\n      {{ item.name }} {{ item.prefix }}\n    </option>\n  </select>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "AbstractControl",
+                    "decorators": []
+                },
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "any[]",
+                    "decorators": []
+                },
+                {
+                    "name": "defaultText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "isRequired",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "selectCode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "eventSelect",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "binding",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "boxShadow",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "clicked",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
+                },
+                {
+                    "name": "formControl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormControl",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "click",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 57,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 },
                 {
                     "name": "ngOnChanges",
@@ -794,7 +1143,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 48,
+                    "line": 42,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -815,7 +1164,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 67,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -832,7 +1181,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 54,
+                    "line": 48,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -855,11 +1204,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';\nimport { AbstractControl, FormControl } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-select',\n  template: `\n    <div class=\"select-container\">\n      <label [ngClass]=\"labelClass\">{{ defaultText }}</label>\n      <select\n        [(ngModel)]=\"binding\"\n        (ngModelChange)=\"seleccionar($event)\"\n        (click)=\"click($event)\"\n        [ngClass]=\"textClass\"\n        [ngStyle]=\"{\n          'box-shadow':\n          boxShadow === 2\n          ? '1px 1px 7.5px #b71c1c'\n          : (boxShadow === 1 ? '1px 1px 7.5px #1b5e20' : 'box-shadow: rgba(100, 100, 111, 0.2);')\n        }\">\n        <option *ngFor=\"let item of data; index as i\" [value]=\"item.code\">\n          {{ item.name }} {{ item.prefix }}\n        </option>\n      </select>\n    </div>\n  `,\n  styleUrls: ['./select.css'],\n})\nexport default class SelectComponent {\n\n  binding: any;\n  boxShadow: number = 0;\n  formControl!: FormControl;\n  clicked: boolean = false;\n\n  @Input() isRequired!: boolean; // temas de validacion\n  // objeto que me trae el listado\n  @Input() data!: any[]; // recibe un array de cualquier cosa\n  @Input() defaultText!: any;\n  @Input() selectCode!:string;\n  @Output() eventSelect = new EventEmitter<string>();\n  // type viene de otro componente -> indica de que tipo es el arreglo si pregrade, posgrade o modo\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if( changes['data']){\n      this.binding = this.defaultText;\n    }\n  }\n\n  seleccionar(evt: string){\n    if (this.eventSelect.emit(evt) !== this.defaultText) {\n      this.boxShadow = 1;\n    }\n    else {\n      this.boxShadow = 2;\n    }\n  }\n\n  click(value: MouseEvent) {\n    this.clicked = value.isTrusted;\n  }\n\n  ngOnInit(): void {\n    this.binding = this.defaultText;\n  }\n\n  public get textClass(): string {\n    return this.defaultText === '' ? 'selected' : 'select';\n  }\n\n  public get labelClass(): string {\n    return this.clicked === false ? 'label' : 'labelUp';\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';\nimport { AbstractControl, FormControl } from '@angular/forms';\n\n@Component({\n  selector: 'ipt-select',\n  template: `\n    <div class=\"select-container\">\n      <label [ngClass]=\"labelClass\">{{ defaultText }}</label>\n      <select\n        [(ngModel)]=\"binding\"\n        (ngModelChange)=\"seleccionar($event)\"\n        (click)=\"click($event)\"\n        [ngClass]=\"textClass\">\n        <option *ngFor=\"let item of data; index as i\" [value]=\"item.code\">\n          {{ item.name }} {{ item.prefix }}\n        </option>\n      </select>\n    </div>\n  `,\n  styleUrls: ['./select.css'],\n})\nexport class SelectComponent {\n\n  binding: any;\n  boxShadow: number = 0;\n  formControl!: FormControl;\n  clicked: boolean = false;\n\n  @Input() isRequired!: boolean; // temas de validacion\n  // objeto que me trae el listado\n  @Input() data!: any[]; // recibe un array de cualquier cosa\n  @Input() defaultText!: any;\n  @Input() selectCode!:string;\n  @Output() eventSelect = new EventEmitter<string>();\n  // type viene de otro componente -> indica de que tipo es el arreglo si pregrade, posgrade o modo\n  @Input() set control(value: AbstractControl) {\n    if (this.formControl !== value) {\n      this.formControl = value as FormControl;\n    }\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if( changes['data']){\n      this.binding = this.defaultText;\n    }\n  }\n\n  seleccionar(evt: string){\n    if (this.eventSelect.emit(evt) !== this.defaultText) {\n      this.boxShadow = 1;\n    }\n    else {\n      this.boxShadow = 2;\n    }\n  }\n\n  click(value: MouseEvent) {\n    this.clicked = value.isTrusted;\n  }\n\n  ngOnInit(): void {\n    this.binding = this.defaultText;\n  }\n\n  public get textClass(): string {\n    return this.defaultText === '' ? 'selected' : 'select';\n  }\n\n  public get labelClass(): string {\n    return this.clicked === false ? 'label' : 'labelUp';\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n.select-container {\n  position: relative;\n  margin-top: 30px;\n}\n\n.select {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  display: block;\n  transition: 200ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n  background: transparent;\n}\n\n.selected {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  transition: 500ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n}\n\nselect:hover {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n}\n\n.select:focus {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  transition: 0s;\n  border: 1.5px solid #1c77f7;\n}\n\n.label {\n  color: #999;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: -20px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n}\n\n.labelUp {\n  color: #1c77f7;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: -20px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n }\n",
+                    "data": "* {\n  font-family: \"Poppins\", sans-serif;\n}\n\n.select-container {\n  position: relative;\n  margin-top: 30px;\n}\n\n.select {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  display: block;\n  transition: 200ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  padding-left: 10px;\n  background-color: white;\n  -webkit-appearance: none;\n}\n\n.selected {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  border-radius: 10px;\n  border: none;\n  outline: none;\n  transition: 500ms;\n  font-weight: 300;\n  margin: 10px 10px -30px 10px;\n  width: -webkit-fill-available;\n  width: -moz-available;\n  height: 28px;\n  background-color: white;\n  padding-left: 10px;\n}\n\nselect:hover {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n}\n\n.select:focus {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  transition: 0s;\n  border: 1.5px solid #1c77f7;\n}\n\n.label {\n  color: #999;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: 7px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n}\n\n.labelUp {\n  color: #1c77f7;\n  font-size: 15px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 20px;\n  top: -20px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all;\n }\n",
                     "styleUrl": "./select.css"
                 }
             ],
@@ -881,7 +1230,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 42,
+                        "line": 36,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -901,7 +1250,7 @@
                         "name": "textClass",
                         "type": "string",
                         "returnType": "string",
-                        "line": 71
+                        "line": 65
                     }
                 },
                 "labelClass": {
@@ -910,7 +1259,7 @@
                         "name": "labelClass",
                         "type": "string",
                         "returnType": "string",
-                        "line": 75
+                        "line": 69
                     }
                 }
             }
@@ -919,13 +1268,13 @@
     "modules": [
         {
             "name": "DesignSystemModule",
-            "id": "module-DesignSystemModule-e925a28d82d59f69f321eebe223e796515fd291635e3461fed00565e6efc747f31faf43603909f9d603bb1c30a96c994c4782f5ae2c5079417d3371fffbd1ebe",
+            "id": "module-DesignSystemModule-29870a90dfb30e640d5f9d484502e8ed2d067a6b5c6f11ff4a754d8c68569e63510292fdb41b15c09f83517eb80eeaf5ed81cc7c9c17236cd09f20e949536bb5",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/design-system/src/lib/design-system.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { CommonModule } from '@angular/common';\n\nimport { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';\n\nimport AsideButtonComponent from './components/aside-button/aside-button.component';\nimport ButtonComponent from './components/button/button.component';\nimport CheckboxComponent from './components/checkbox/checkbox.component';\nimport DatalistComponent from './components/datalist/datalist.component';\nimport InputComponent from './components/input/input.component';\nimport SelectComponent from './components/select/select.component';\n\n\n\n@NgModule({\n  declarations: [\n    AsideButtonComponent,\n    ButtonComponent,\n    CheckboxComponent,\n    DatalistComponent,\n    InputComponent,\n    SelectComponent,\n  ],\n  imports: [\n    CommonModule,\n    BrowserModule,\n    FormsModule,\n    ReactiveFormsModule\n  ],\n  exports: [\n    AsideButtonComponent,\n    ButtonComponent,\n    CheckboxComponent,\n    DatalistComponent,\n    InputComponent,\n    SelectComponent,\n  ]\n})\nexport class DesignSystemModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { CommonModule } from '@angular/common';\n\nimport { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';\n\nimport { AsideButtonComponent } from './components/atoms/aside-button/aside-button.component';\nimport { ButtonComponent } from './components/atoms/button/button.component';\nimport { CheckboxComponent } from './components/atoms/checkbox/checkbox.component';\nimport { DatalistComponent } from './components/atoms/datalist/datalist.component';\nimport { InputComponent } from './components/atoms/input/input.component';\nimport { RadioComponent } from './components/atoms/radio/radio.component';\nimport { SelectComponent } from './components/atoms/select/select.component';\nimport { LoginFormComponent } from './components/forms/login-form/login-form.component';\nimport { RegisterFormComponent } from './components/forms/register-form/register-form.component';\n\n\n\n@NgModule({\n  declarations: [\n    AsideButtonComponent,\n    ButtonComponent,\n    CheckboxComponent,\n    DatalistComponent,\n    InputComponent,\n    RadioComponent,\n    SelectComponent,\n    LoginFormComponent,\n    RegisterFormComponent\n  ],\n  imports: [\n    CommonModule,\n    BrowserModule,\n    FormsModule,\n    ReactiveFormsModule\n  ],\n  exports: [\n    AsideButtonComponent,\n    ButtonComponent,\n    CheckboxComponent,\n    DatalistComponent,\n    InputComponent,\n    RadioComponent,\n    SelectComponent\n  ]\n})\nexport class DesignSystemModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -948,6 +1297,15 @@
                         },
                         {
                             "name": "InputComponent"
+                        },
+                        {
+                            "name": "LoginFormComponent"
+                        },
+                        {
+                            "name": "RadioComponent"
+                        },
+                        {
+                            "name": "RegisterFormComponent"
                         },
                         {
                             "name": "SelectComponent"
@@ -975,6 +1333,9 @@
                         },
                         {
                             "name": "InputComponent"
+                        },
+                        {
+                            "name": "RadioComponent"
                         },
                         {
                             "name": "SelectComponent"
@@ -1039,6 +1400,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1177,6 +1548,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/Radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Radio>",
+                "defaultValue": "(args: Radio) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/Select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1307,6 +1688,28 @@
                     "defaultValue": "(args: Input) => ({\n  props: args,\n})"
                 }
             ],
+            "stories/Radio.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Radio>",
+                    "defaultValue": "(args: Radio) => ({\n  props: args,\n})"
+                }
+            ],
             "stories/Select.stories.ts": [
                 {
                     "name": "Default",
@@ -1402,7 +1805,7 @@
         "status": "low",
         "files": [
             {
-                "filePath": "projects/design-system/src/lib/components/aside-button/aside-button.component.ts",
+                "filePath": "projects/design-system/src/lib/components/atoms/aside-button/aside-button.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "AsideButtonComponent",
@@ -1411,16 +1814,16 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/design-system/src/lib/components/button/button.component.ts",
+                "filePath": "projects/design-system/src/lib/components/atoms/button/button.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
-                "filePath": "projects/design-system/src/lib/components/checkbox/checkbox.component.ts",
+                "filePath": "projects/design-system/src/lib/components/atoms/checkbox/checkbox.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "CheckboxComponent",
@@ -1429,30 +1832,66 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/design-system/src/lib/components/datalist/datalist.component.ts",
+                "filePath": "projects/design-system/src/lib/components/atoms/datalist/datalist.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "DatalistComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/13",
                 "status": "low"
             },
             {
-                "filePath": "projects/design-system/src/lib/components/input/input.component.ts",
+                "filePath": "projects/design-system/src/lib/components/atoms/input/input.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "InputComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/12",
                 "status": "low"
             },
             {
-                "filePath": "projects/design-system/src/lib/components/select/select.component.ts",
+                "filePath": "projects/design-system/src/lib/components/atoms/radio/radio.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RadioComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/atoms/select/select.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "SelectComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/15",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/forms/login-form/login-form.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoginFormComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/forms/register-form/register-form.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RegisterFormComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/design-system/src/lib/components/services/parameters-services/parameters.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ParametersService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -1607,6 +2046,26 @@
             },
             {
                 "filePath": "stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Radio.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Radio.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
