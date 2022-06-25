@@ -12,6 +12,8 @@ import { InputComponent } from './components/atoms/input/input.component';
 import { RadioComponent } from './components/atoms/radio/radio.component';
 import { SelectComponent } from './components/atoms/select/select.component';
 
+import { ParametersService } from './services/parameters-services/parameters.service';
+
 
 
 @NgModule({
@@ -28,7 +30,7 @@ import { SelectComponent } from './components/atoms/select/select.component';
     CommonModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     AsideButtonComponent,
@@ -37,7 +39,8 @@ import { SelectComponent } from './components/atoms/select/select.component';
     DatalistComponent,
     InputComponent,
     RadioComponent,
-    SelectComponent
+    SelectComponent,
+    ParametersService
   ]
 })
 export class DesignSystemModule { }
