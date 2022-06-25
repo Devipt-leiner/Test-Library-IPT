@@ -11,9 +11,9 @@ import { DatalistComponent } from './components/atoms/datalist/datalist.componen
 import { InputComponent } from './components/atoms/input/input.component';
 import { RadioComponent } from './components/atoms/radio/radio.component';
 import { SelectComponent } from './components/atoms/select/select.component';
-import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 
 import { LoginFormComponent } from './components/forms/login-form/login-form.component';
+import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 
 
 
@@ -42,7 +42,8 @@ import { LoginFormComponent } from './components/forms/login-form/login-form.com
     DatalistComponent,
     InputComponent,
     RadioComponent,
-    SelectComponent
+    SelectComponent,
+    LoginFormComponent
   ]
 })
 export class DesignSystemModule { }

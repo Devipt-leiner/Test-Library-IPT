@@ -17,4 +17,5 @@ const Template: Story<LoginForm> = (args: LoginForm) => ({
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/angular/writing-stories/args
 Default.args = {
+  
 };
