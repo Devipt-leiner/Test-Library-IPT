@@ -1,0 +1,80 @@
+<section class="main-container">
+  <h3>Formulario de prueba</h3>
+  <hr>
+  <form (ngSubmit)="sendForm(myForm)" [formGroup]="myForm">
+
+    <section class="form-grid">
+      <ipt-input
+        [inputType]="'text'"
+        [control]="myForm.controls['name']"
+        [validateText]="'Debe escribir su nombre'"
+        [placeHolder]="'Nombres'"
+      ></ipt-input>
+
+      <ipt-input
+        [inputType]="'text'"
+        [control]="myForm.controls['last_name']"
+        [validateText]="'Debe escribir su apellido'"
+        [placeHolder]="'Apellidos'"
+      ></ipt-input>
+
+      <ipt-select
+        [defaultText]="'Tipo de documento'"
+        [data]="typeDocument"
+        [control]="myForm.controls['type_document']"
+      ></ipt-select>
+
+      <ipt-input
+        [inputType]="'number'"
+        [control]="myForm.controls['document']"
+        [validateText]="'Debe escribir su documento'"
+        [placeHolder]="'Número de documento'"
+      ></ipt-input>
+
+      <ipt-input
+        [inputType]="'number'"
+        [control]="myForm.controls['phone_number']"
+        [validateText]="'Debe escribir su teléfono'"
+        [placeHolder]="'Teléfono'"
+      ></ipt-input>
+
+      <ipt-input
+        [inputType]="'email'"
+        [control]="myForm.controls['email']"
+        [validateText]="'Debe escribir su correo'"
+        [placeHolder]="'Correo electrónico'"
+      ></ipt-input>
+
+      <ipt-input
+        [inputType]="'date'"
+        [control]="myForm.controls['birthday']"
+        [validateText]="'Fecha de nacimiento'"
+        [placeHolder]="'Fecha de nacimiento'"
+      ></ipt-input>
+
+      <ipt-datalist
+        [placeHolder]="'Género'"
+        [datalistData]="dataList"
+        [datalistId]="'datalist'"
+      ></ipt-datalist>
+    </section>
+
+    <div class="button-container">
+      <ipt-button
+        type="submit"
+        [primary]="true"
+        [isEnabled]="myForm.valid"
+        [label]="'Enviar'"
+        (onClick)="sendForm(myForm)"
+      ></ipt-button>
+    </div>
+
+
+  </form>
+</section>
+
+<ipt-login-form
+  (email)="getEmail($event)"
+  (password)="getPassword($event)"
+  [image]="'/assets/WOLF.png'"
+></ipt-login-form>

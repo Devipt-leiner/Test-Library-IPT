@@ -1,0 +1,32 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: 1fr 11fr;
+  grid-template-areas:
+  "header header"
+  "aside main";
+  margin: 0;
+  color: rgb(58, 58, 58);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  grid-area: header;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+aside {
+  grid-area: aside;
+  background-color: #1c77f7;
+}
+
+main {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

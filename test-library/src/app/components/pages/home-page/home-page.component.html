@@ -1,0 +1,39 @@
+<body>
+  <header>
+    <img src="/assets/logo.png" width="100px" height="50px" alt="logo_ipt">
+    <h2>Aplicación para probar componentes IPT</h2>
+  </header>
+  <aside>
+    <ipt-aside-button
+      [icon]="'/assets/inicio.png'"
+      [textColor]="'white'"
+      [text]="'Home'"
+      [type]="'0'"
+      [buttonActive]="template === 'home'"
+      (isClicked)="isClickedHome()"
+    ></ipt-aside-button>
+
+    <ipt-aside-button
+      [icon]="'/assets/usuario.png'"
+      [textColor]="'white'"
+      [text]="'Login'"
+      [type]="'0'"
+      [buttonActive]="template === 'login'"
+      (isClicked)="isClickedLogin()"
+    ></ipt-aside-button>
+
+    <ipt-aside-button
+      [icon]="'/assets/writing.png'"
+      [textColor]="'white'"
+      [text]="'Formulario'"
+      [type]="'0'"
+      [buttonActive]="template === 'form'"
+      (isClicked)="isClickedForm()"
+    ></ipt-aside-button>
+  </aside>
+  <main [ngSwitch]="template">
+    <h3 *ngSwitchCase="'home'">HOME PAGE</h3>
+    <app-login-form-template *ngSwitchCase="'login'"></app-login-form-template>
+    <app-form-template *ngSwitchCase="'form'"></app-form-template>
+  </main>
+</body>

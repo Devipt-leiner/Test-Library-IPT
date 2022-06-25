@@ -1,0 +1,41 @@
+<div [ngClass]="{'with-background': background}" class="form-container">
+
+  <img src="/assets/WOLF.png" alt="wolf" width="150px">
+
+  <h2>IPT PLATFORM</h2>
+  <hr>
+
+  <form (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
+    <ipt-input
+      [inputType]="'text'"
+      [placeHolder]="'Email'"
+      [validateText]="'Debe ser @inglesparatodos.edu.co'"
+      [control]="loginForm.controls['email']"
+    ></ipt-input>
+
+    <ipt-input
+      [inputType]="'password'"
+      [placeHolder]="'Password'"
+      [control]="loginForm.controls['password']"
+    ></ipt-input>
+  </form>
+
+  <div class="button-container">
+    <a href="">Forget password</a>
+
+    <ipt-button
+      [label]="'Login'"
+      [primary]="true"
+      [isEnabled]="loginForm.valid"
+      (onClick)="login(loginForm)"
+    ></ipt-button>
+  </div>
+
+  <footer>
+    <ipt-button
+      [label]="'Register'"
+      [primary]="false"
+    ></ipt-button>
+  </footer>
+
+</div>
