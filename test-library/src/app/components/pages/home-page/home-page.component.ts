@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ParametersService } from 'iptdevs-design-system';
+
+
+
 
 @Component({
   selector: 'app-home-page',
@@ -8,6 +12,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomePageComponent {
 
   template: string = 'home';
+
+  englishLevels: any[] = [];
+
+  constructor (private parametersService: ParametersService) {}
 
   isClickedHome() {
     this.template = 'home';
@@ -19,6 +27,13 @@ export class HomePageComponent {
 
   isClickedForm() {
     this.template = 'form'
+  }
+
+  getLevels() {
+    this.parametersService.getLevels().subscribe((response) => {
+      console.log(response.data);
+      this.englishLevels = response.data;
+    })
   }
 
 }

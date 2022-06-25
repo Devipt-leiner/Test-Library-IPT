@@ -33,6 +33,17 @@
   </aside>
   <main [ngSwitch]="template">
     <h3 *ngSwitchCase="'home'">HOME PAGE</h3>
+    <ipt-button
+      [primary]="true"
+      [label]="'Get English Levels'"
+      (onClick)="getLevels()"
+    ></ipt-button>
+
+    <ul>
+      <li *ngFor="let englishLevel of englishLevels">{{ englishLevel.name }}</li>
+    </ul>
+
+
     <app-login-form-template *ngSwitchCase="'login'"></app-login-form-template>
     <app-form-template *ngSwitchCase="'form'"></app-form-template>
   </main>
